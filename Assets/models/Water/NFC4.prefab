@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: NFC4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c992e8fbb96f7b3498a28a9e664f95df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diffuseCube: {fileID: 8900000, guid: b4fcc420a736c4e95aabf780fe1012f3, type: 2}
+  specularCube: {fileID: 8900000, guid: 1228df69c28a949e69a337ccea0e39c5, type: 2}
+  skyboxCube: {fileID: 8900000, guid: c1101deb9d4694b37ac9de134f84e731, type: 2}
+  masterIntensity: 1
+  skyIntensity: 1
+  specIntensity: 1
+  diffIntensity: 1
+  camExposure: 1
+  specIntensityLM: 1
+  diffIntensityLM: 1
+  hdrSky: 0
+  hdrSpec: 0
+  hdrDiff: 0
+  showSkybox: 1
+  linearSpace: 0
+  autoDetectColorSpace: 1
+  hasDimensions: 0
+  SH:
+    c:
+    - .0308504291
+    - .034820471
+    - .0395470187
+    - .00386227947
+    - .00556346029
+    - .00764767081
+    - .0011619
+    - .00122993637
+    - .00125278824
+    - -.00472464785
+    - -.00498727802
+    - -.00506779971
+    - -.00149105
+    - -.00156786281
+    - -.00159337698
+    - .000328889088
+    - .000344380562
+    - .000346350978
+    - -.000436428061
+    - -.000316207734
+    - -.00013406566
+    - -.000874433259
+    - -.000932364783
+    - -.000956892094
+    - .00210311287
+    - .00249128346
+    - .0028843109
+    cBuffer:
+    - {x: .00870274473, y: .00982267316, z: .0111560076, w: 0}
+    - {x: .00188711938, y: .00271832058, z: .00373667106, w: 0}
+    - {x: .000567707233, y: .000600949978, z: .000612115429, w: 0}
+    - {x: -.00230847462, y: -.00243679644, z: -.00247613946, w: 0}
+    - {x: -.00162904442, y: -.00171296613, z: -.00174084166, w: 0}
+    - {x: .00035932727, y: .000376252457, z: .000378405239, w: 0}
+    - {x: -.000137645737, y: -9.97292518e-05, z: -4.22831799e-05, w: 0}
+    - {x: -.000955360709, y: -.00101865374, z: -.00104545103, w: 0}
+    - {x: .00114887638, y: .00136092398, z: .0015756248, w: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
