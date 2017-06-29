@@ -33,6 +33,6 @@ public class RobotImageSensor : ROSBridgeSubscriber {
 	
 	public new static void CallBack(ROSBridgeMsg msg) {
         CompressedImageMsg imgMsg = msg as CompressedImageMsg;
-        //HUD.selectionHighlight.LoadImage(imgMsg.GetImage());
-	}
+        ROSManager.getInstance().getUBDCam().LoadImage(imgMsg.GetImage());
+    }
 }

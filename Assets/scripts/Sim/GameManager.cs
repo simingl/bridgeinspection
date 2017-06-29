@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    private static GameManager instance = new GameManager();
 
-    private ROSManager rosManager;
     private UIManager uiManager;
 
-	// Use this for initialization
-	void Start () {
-        rosManager = ROSManager.getInstance();
-        //uiManager = new UIManager();
+    public static GameManager getInstance()
+    {
+        return instance;
+    }
+
+    // Use this for initialization
+    void Start () {
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        ROSManager.getInstance().ROSRender();
 	}
+
+    public ROSManager getROSManager() {
+        return ROSManager.getInstance();
+    }
 }

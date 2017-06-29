@@ -8,6 +8,8 @@ using ROSBridgeLib.geometry_msgs;
 public class ROSManager{
 	private static ROSManager instance = new ROSManager();
 
+    private Texture2D UBDCam;
+
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn;
 
@@ -16,11 +18,12 @@ public class ROSManager{
 	}
 
 	private ROSManager(){
+        UBDCam = new Texture2D(128, 128);
         ROSConnect();
 	}
 
     public void ROSConnect() {
-        ros = new ROSBridgeWebSocketConnection("ws://134.197.87.18", 9090);
+        ros = new ROSBridgeWebSocketConnection("ws://134.197.86.14", 9090);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
         ros.AddPublisher(typeof(RobotTeleop));
@@ -42,5 +45,8 @@ public class ROSManager{
             ros.Disconnect();
     }
 
-
+    public Texture2D getUBDCam() {
+        return UBDCam;
+    }
+    
 }
