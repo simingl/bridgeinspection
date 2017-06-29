@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UBDControl : MonoBehaviour {
-    private float speed = 0f;
-    private float minSpeed = 0f;
-    private float maxSpeed = 2f;
-    private float moveSpeed, rotateSpeed;
-    private float acceleration = 0.3f;
 
     // Use this for initialization
     void Start () {
