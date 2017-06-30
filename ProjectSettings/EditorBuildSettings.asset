@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_scene/Bridge.unity
+    path: Assets/_scene/bridge.unity
+    guid: 3a8aea03e85c17d4da23aee71188e9b0
+  - enabled: 1
+    path: Assets/_scene/Menu.unity
+    guid: 2b9574f6318791f46a848cc863d8f618
