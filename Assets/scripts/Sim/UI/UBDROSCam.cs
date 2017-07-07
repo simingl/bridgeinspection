@@ -25,4 +25,16 @@ public class UBDROSCam : MonoBehaviour {
     {
         rawImage.texture = rosManager.getUBDCam();
     }
+
+    public void ToggleUBDCam(bool toggle)
+    {
+        if (rawImage.enabled)
+        {
+            rawImage.enabled = false;
+        }
+        else
+        {
+            rawImage.enabled = true;
+        }
+    }
 }
