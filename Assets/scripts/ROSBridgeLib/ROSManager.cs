@@ -19,7 +19,7 @@ public class ROSManager{
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
-        ROSConnect();
+        //ROSConnect();
 	}
 
     public void ROSConnect() {

@@ -195,6 +195,7 @@ RectTransform:
   m_Children:
   - {fileID: 1593266866}
   - {fileID: 929237095}
+  - {fileID: 123005711}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -769,6 +770,97 @@ MonoBehaviour:
     type: 3}
   colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
     type: 3}
+--- !u!1 &123005710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 123005711}
+  - component: {fileID: 123005714}
+  - component: {fileID: 123005713}
+  - component: {fileID: 123005712}
+  m_Layer: 5
+  m_Name: UBDSpeedPlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &123005711
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123005710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 17254009}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123005712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123005710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db87ce494dbd664459f5de5fd4f82307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TakeScreenShots: 0
+--- !u!222 &123005713
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123005710}
+--- !u!114 &123005714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123005710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73eaf268f4ff16d40b3f987272ecb010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RedrawNow: 1
+  Margin: {x: 1, y: 1, z: 1, w: 1}
+  DefaultPlotMaterial: {fileID: 2100000, guid: 4c4c4225ea853a54bbd75e7fd97c5493, type: 2}
+  AxesThickness: 0.5
+  AxisMaterial: {fileID: 2100000, guid: f2546e699f1f973439d54e250b7cc036, type: 2}
+  AxesDrawAt: {x: 0, y: 0}
+  AxisColor: {r: 1, g: 1, b: 1, a: 1}
+  AxisLabelColor: {r: 1, g: 1, b: 1, a: 1}
+  MarginBackgroundColor: {r: 1, g: 1, b: 1, a: 0.4}
+  DrawXLabel: 1
+  DrawYLabel: 1
+  XTickStyle: 3
+  XNumberOfTicks: 5
+  YTickStyle: 3
+  YNumberOfTicks: 5
+  PlotBackgroundMaterial: {fileID: 2100000, guid: f2546e699f1f973439d54e250b7cc036,
+    type: 2}
+  PlotBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  GridLinesThicknesMajor: 0
+  GridLinesSeparationMajor: {x: 0, y: 0}
+  GridLinesColorMajor: {r: 0, g: 0, b: 0, a: 0}
+  GridLinesThicknesMinor: 0
+  GridLinesSeparationMinor: {x: 0, y: 0}
+  GridLinesColorMinor: {r: 0, g: 0, b: 0, a: 0}
+  fontSize: 16
+  AxisLabelDynamicFont: {fileID: 0}
 --- !u!1 &128938322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,42 +1114,6 @@ Prefab:
     - target: {fileID: 440718, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 440718, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 500000
-      objectReference: {fileID: 0}
-    - target: {fileID: 440718, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 500000
-      objectReference: {fileID: 0}
-    - target: {fileID: 440718, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 500000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368724, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368724, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_LightProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489712, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_DisablePixelLights
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489712, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_TextureSize
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489712, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_ClipPlaneOffset
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489712, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 2}
@@ -3735,7 +3791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76.203064, y: -19.867538}
+  m_AnchoredPosition: {x: -76.203064, y: -19.867554}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &929237096
