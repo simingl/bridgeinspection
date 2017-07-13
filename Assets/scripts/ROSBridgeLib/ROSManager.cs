@@ -13,17 +13,21 @@ public class ROSManager{
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn;
 
+    private string ip;
+
     public static ROSManager getInstance(){
 		return instance;
 	}
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
+        ip = "000.000.00.00";
         ROSConnect();
-	}
+        
+    }
 
     public void ROSConnect() {
-        ros = new ROSBridgeWebSocketConnection("ws://000.000.00.00", 9090);
+        ros = new ROSBridgeWebSocketConnection("ws://"+ip, 9090);
         //ros = new ROSBridgeWebSocketConnection("ws://134.197.86.14", 9090);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
@@ -48,6 +52,16 @@ public class ROSManager{
 
     public Texture2D getUBDCam() {
         return UBDCam;
+    }
+
+    public void setIp(string newip)
+    {
+        ip = newip;
+    }
+
+    public string getIp()
+    {
+        return ip;
     }
     
 }

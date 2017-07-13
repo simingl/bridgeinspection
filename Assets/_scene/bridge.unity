@@ -4059,7 +4059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.70001, y: 0}
+  m_AnchoredPosition: {x: -199.7, y: 0}
   m_SizeDelta: {x: -399.4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834649097
@@ -6112,6 +6112,7 @@ GameObject:
   - component: {fileID: 1348063832}
   - component: {fileID: 1348063834}
   - component: {fileID: 1348063833}
+  - component: {fileID: 1348063835}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6169,13 +6170,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 000.000.000.000
+  m_Text: xxx.xxx.xx
 --- !u!222 &1348063834
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348063831}
+--- !u!114 &1348063835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1348063831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e19935cfb633044a8723694a4a232b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddress: {fileID: 1348063833}
 --- !u!1 &1380233446
 GameObject:
   m_ObjectHideFlags: 0
