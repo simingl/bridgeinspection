@@ -21,10 +21,12 @@ public class ROSManager{
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
+
         ip = "000.000.00.00";
         //ROSConnect();
         
     }
+
 
     public void ROSConnect() {
         ros = new ROSBridgeWebSocketConnection("ws://"+ip, 9090);
