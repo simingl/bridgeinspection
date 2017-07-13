@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
     private static GameManager instance = new GameManager();
 
     private UIManager uiManager;
+    //private ConfigManager configManager;
+    //private ROSManager rosManager;
 
     public static GameManager getInstance()
     {
@@ -28,4 +30,11 @@ public class GameManager : MonoBehaviour {
     public ROSManager getROSManager() {
         return ROSManager.getInstance();
     }
+
+    public ConfigManager getConfigManager()
+    {
+        return ConfigManager.getInstance();
+    }
+
+    
 }

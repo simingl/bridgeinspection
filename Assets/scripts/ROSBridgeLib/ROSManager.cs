@@ -11,7 +11,7 @@ public class ROSManager{
     private Texture2D UBDCam;
 
     private ROSBridgeWebSocketConnection ros = null;
-    private Boolean lineOn;
+    private Boolean lineOn = false;
 
     private string ip;
 
@@ -22,13 +22,12 @@ public class ROSManager{
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
         ip = "000.000.00.00";
-        ROSConnect();
+        //ROSConnect();
         
     }
 
     public void ROSConnect() {
         ros = new ROSBridgeWebSocketConnection("ws://"+ip, 9090);
-        //ros = new ROSBridgeWebSocketConnection("ws://134.197.86.14", 9090);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
         ros.AddPublisher(typeof(RobotTeleop));
@@ -36,12 +35,19 @@ public class ROSManager{
         lineOn = true;
     }
 
-    public void ROSRender() {
+    public void ROSRender()
+    {
+        if (lineOn)
+        { 
         this.ros.Render();
+        }
     }
-    public void RemoteControl(Vector3 linear, Vector3 angular) { 
-        TwistMsg msg = new TwistMsg (new Vector3Msg(linear.x, linear.y, linear.z), new Vector3Msg(angular.x, angular.y, angular.z));
-        ros.Publish (RobotTeleop.GetMessageTopic (), msg);
+    public void RemoteControl(Vector3 linear, Vector3 angular) {
+        if (lineOn)
+        {
+            TwistMsg msg = new TwistMsg(new Vector3Msg(linear.x, linear.y, linear.z), new Vector3Msg(angular.x, angular.y, angular.z));
+            ros.Publish(RobotTeleop.GetMessageTopic(), msg);
+        }
     }
 
     public void ROSDisconnect()
@@ -51,7 +57,8 @@ public class ROSManager{
     }
 
     public Texture2D getUBDCam() {
-        return UBDCam;
+        
+            return UBDCam;       
     }
 
     public void setIp(string newip)
