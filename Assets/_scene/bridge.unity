@@ -289,7 +289,6 @@ RectTransform:
   - {fileID: 1593266866}
   - {fileID: 2053786486}
   - {fileID: 123005711}
-  - {fileID: 929237095}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1722,7 +1721,7 @@ GameObject:
   - component: {fileID: 326791195}
   - component: {fileID: 326791196}
   m_Layer: 5
-  m_Name: layout_box (1)
+  m_Name: layout_box (rosbridgetxt)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3235,7 +3234,7 @@ GameObject:
   - component: {fileID: 637547965}
   - component: {fileID: 637547966}
   m_Layer: 5
-  m_Name: layout_box (2)
+  m_Name: layout_box (ipInputField)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4102,8 +4101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.7, y: 0}
-  m_SizeDelta: {x: -399.4, y: 0}
+  m_AnchoredPosition: {x: -194.4, y: 0}
+  m_SizeDelta: {x: -388.6, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834649097
 MonoBehaviour:
@@ -4159,7 +4158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &843321881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4639,81 +4638,6 @@ MonoBehaviour:
   m_PreferredHeight: 30
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
---- !u!1 &929237094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 929237095}
-  - component: {fileID: 929237096}
-  m_Layer: 5
-  m_Name: Settings_Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &929237095
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 929237094}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.88300216, y: 0.88300216, z: 0.88300216}
-  m_Children: []
-  m_Father: {fileID: 17254009}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76.203064, y: -19.867554}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &929237096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 929237094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.13725491, g: 0.13725491, b: 0.13725491, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1680211566}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &930285227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4726,7 +4650,7 @@ GameObject:
   - component: {fileID: 930285230}
   - component: {fileID: 930285229}
   m_Layer: 5
-  m_Name: Button
+  m_Name: bttn_connect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4789,7 +4713,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930285230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1154736254}
+        m_MethodName: connectROSBridge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &930285230
@@ -5313,7 +5248,7 @@ GameObject:
   - component: {fileID: 1107909804}
   - component: {fileID: 1107909805}
   m_Layer: 5
-  m_Name: layout_box
+  m_Name: layout_box(ubdtoggle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5609,6 +5544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UBDHeadlightR: {fileID: 1097650844}
   UBDHeadlightL: {fileID: 787048394}
+  UBDRosCam: {fileID: 1593266867}
+  currentIp: {fileID: 1348063833}
 --- !u!1001 &1162969097
 Prefab:
   m_ObjectHideFlags: 0
@@ -5933,7 +5870,7 @@ GameObject:
   - component: {fileID: 1255419107}
   - component: {fileID: 1255419108}
   m_Layer: 5
-  m_Name: layout_box (3)
+  m_Name: layout_box (currentIpTxt)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6011,7 +5948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168.7, y: -1.3}
+  m_AnchoredPosition: {x: 174.6, y: -1.3}
   m_SizeDelta: {x: 192.6, y: 27.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325549038
@@ -6034,7 +5971,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.64705884, g: 0.64705884, b: 0.64705884, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6062,7 +5999,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1154736254}
+        m_MethodName: setNewRosBridgeIp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -6142,8 +6090,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: -20, y: -13}
+  m_AnchoredPosition: {x: -0.024962999, y: 0}
+  m_SizeDelta: {x: -20.05, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341458553
 MonoBehaviour:
@@ -6194,9 +6142,8 @@ GameObject:
   - component: {fileID: 1348063832}
   - component: {fileID: 1348063834}
   - component: {fileID: 1348063833}
-  - component: {fileID: 1348063835}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txt_currentIp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6259,18 +6206,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348063831}
---- !u!114 &1348063835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1348063831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e19935cfb633044a8723694a4a232b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ipAddress: {fileID: 1348063833}
 --- !u!1 &1380233446
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,6 +6826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a4ec660379d7543a2258261f778d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  rawImage: {fileID: 0}
 --- !u!1 &1619916341
 GameObject:
   m_ObjectHideFlags: 0
@@ -7569,7 +7506,7 @@ GameObject:
   - component: {fileID: 1957900497}
   - component: {fileID: 1957900496}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: bttn_disconnect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7632,7 +7569,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1957900497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1154736254}
+        m_MethodName: disconnectROSBridge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1957900497
@@ -8088,8 +8036,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Pause
+      - m_Target: {fileID: 1154736254}
+        m_MethodName: toggleOptionsCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

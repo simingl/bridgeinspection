@@ -21,8 +21,7 @@ public class ROSManager{
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
-
-        ip = "000.000.00.00";
+                
         //ROSConnect();
         
     }
@@ -30,6 +29,7 @@ public class ROSManager{
 
     public void ROSConnect() {
         ros = new ROSBridgeWebSocketConnection("ws://"+ip, 9090);
+        Debug.Log("ROSBridge connecting to " + ip);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
         ros.AddPublisher(typeof(RobotTeleop));

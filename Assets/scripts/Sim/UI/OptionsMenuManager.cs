@@ -16,13 +16,13 @@ public class OptionsMenuManager : MonoBehaviour {
     public RawImage UBDRosCam;
 
     public Text currentIp;
-     
+
+    
 
 
-    public 
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         gameManager = GameManager.getInstance();
         getIPaddress();
@@ -73,11 +73,33 @@ public class OptionsMenuManager : MonoBehaviour {
         UBDRosCam.enabled = !UBDRosCam.enabled;
     }
 
+    public void setNewRosBridgeIp(string newIp)
+    {
+        gameManager.getConfigManager().setROSCoreIP(newIp);
+        getIPaddress();
+        //gameManager.getROSManager().setIp(newIp);
+
+    }
+
+    public void connectROSBridge()
+    {
+        string ipTemp = gameManager.getConfigManager().getROSCoreIP();
+
+        gameManager.getROSManager().setIp(ipTemp);
+        gameManager.getROSManager().ROSConnect();
+    }
+
+    public void disconnectROSBridge()
+    {
+        gameManager.getROSManager().ROSDisconnect();
+    }
+
 
     private void getIPaddress()
     {
         currentIp.text = gameManager.getConfigManager().getROSCoreIP();
     }
+
 
 
 }
