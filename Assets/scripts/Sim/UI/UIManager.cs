@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
-    public void getIPaddress()
+    private void getIPaddress()
     {
         currentIP.text = gameManager.getConfigManager().getROSCoreIP();
     }
