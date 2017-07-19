@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -75,9 +76,16 @@ public class OptionsMenuManager : MonoBehaviour {
 
     public void setNewRosBridgeIp(string newIp)
     {
-        gameManager.getConfigManager().setROSCoreIP(newIp);
-        getIPaddress();
-        //gameManager.getROSManager().setIp(newIp);
+        if ( IsIpaddress(newIp) )
+        {
+            gameManager.getConfigManager().setROSCoreIP(newIp);
+            getIPaddress();
+            
+        }
+        else
+        {
+            Debug.Log("Invalid IP address "+newIp);
+        }
 
     }
 
@@ -100,6 +108,27 @@ public class OptionsMenuManager : MonoBehaviour {
         currentIp.text = gameManager.getConfigManager().getROSCoreIP();
     }
 
+    //error check for IP address
+    public bool IsIpaddress(string value)
+    {
+        IPAddress address;
+
+        if (string.IsNullOrEmpty (value))
+        {
+            return false;
+        }
+        string[] splitValues = value.Split('.');
+        if(splitValues.Length != 4)
+        {
+            return false;
+        }
+        if (IPAddress.TryParse(value, out address))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
 
 }
