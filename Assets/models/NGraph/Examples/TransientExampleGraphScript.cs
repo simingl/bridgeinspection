@@ -15,6 +15,11 @@ public class TransientExampleGraphScript : MonoBehaviour
    public bool TakeScreenShots = false;
    NGraph mGraph;
    NGraphDataSeriesXyLiveTransient mSeries1;
+
+    //testing
+    public GameObject UBD;
+    private Rigidbody ubdRigidbody;
+    private Vector3 VelocityVector;
       
    void Awake ()
    {
@@ -31,6 +36,10 @@ public class TransientExampleGraphScript : MonoBehaviour
       mSeries1 = mGraph.addDataSeries<NGraphDataSeriesXyLiveTransient>("Transient", Color.green);
       mSeries1.Data = data;
       mSeries1.UpdateRate = 0.005f;
+
+      //testing
+      ubdRigidbody = UBD.GetComponent<Rigidbody>();
+      VelocityVector = ubdRigidbody.position;
    }
    
    float mLastShot = 0;
@@ -39,8 +48,16 @@ public class TransientExampleGraphScript : MonoBehaviour
    {
       if(mGraph == null)
          return;
-      
-      mSeries1.UpdateValue = Mathf.Sin (Time.time) * 7;
+
+        //mSeries1.UpdateValue = Mathf.Sin (Time.time) * 7;
+
+        //testing
+        float movementPerFrame = Vector3.Distance(VelocityVector, transform.position);
+        float velocity = movementPerFrame / Time.deltaTime;
+        VelocityVector = transform.position;
+        //Debug.Log("Velocity " + velocity);
+        
+        mSeries1.UpdateValue = velocity;
       
       if(!TakeScreenShots)
          return;
@@ -59,4 +76,21 @@ public class TransientExampleGraphScript : MonoBehaviour
          Application.CaptureScreenshot(screenshotFilename);
       }
    }
+
+    //testing
+    /*
+    private float getVelocity()
+    {
+        
+        float movementPerFrame = Vector3.Distance(VelocityVector, transform.position);
+        float velocity = movementPerFrame / Time.deltaTime;
+
+        VelocityVector = transform.position;
+
+        Debug.Log("Velocity " + velocity);
+
+        return velocity;
+    }
+    */
+
 }

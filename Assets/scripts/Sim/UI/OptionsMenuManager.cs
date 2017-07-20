@@ -18,7 +18,7 @@ public class OptionsMenuManager : MonoBehaviour {
 
     public Text currentIp;
 
-    
+    public GameObject testValuesPanel;    
 
 
 
@@ -128,6 +128,22 @@ public class OptionsMenuManager : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void tglTestValuePanel(bool value)
+    {
+        //if true
+        if (testValuesPanel.activeSelf)
+        {
+            //set false
+            testValuesPanel.SetActive(false);
+        }
+        else
+        {
+            // set true
+            testValuesPanel.SetActive(true);
+        }
+        
     }
 
 
