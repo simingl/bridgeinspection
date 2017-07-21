@@ -20,6 +20,8 @@ public class TransientExampleGraphScript : MonoBehaviour
     public GameObject UBD;
     private Rigidbody ubdRigidbody;
     private Vector3 VelocityVector;
+    private Transform ubdTransform;
+    private float velocityTemp;
       
    void Awake ()
    {
@@ -39,7 +41,8 @@ public class TransientExampleGraphScript : MonoBehaviour
 
       //testing
       ubdRigidbody = UBD.GetComponent<Rigidbody>();
-      VelocityVector = ubdRigidbody.position;
+        ubdTransform = UBD.GetComponent<Transform>();
+      VelocityVector = ubdTransform.position;
    }
    
    float mLastShot = 0;
@@ -52,12 +55,12 @@ public class TransientExampleGraphScript : MonoBehaviour
         //mSeries1.UpdateValue = Mathf.Sin (Time.time) * 7;
 
         //testing
-        float movementPerFrame = Vector3.Distance(VelocityVector, transform.position);
-        float velocity = movementPerFrame / Time.deltaTime;
-        VelocityVector = transform.position;
+        float movementPerFrame = Vector3.Distance(VelocityVector, ubdTransform.position);
+        velocityTemp = movementPerFrame / Time.deltaTime;
+        VelocityVector = ubdTransform.position;
         //Debug.Log("Velocity " + velocity);
         
-        mSeries1.UpdateValue = velocity;
+        mSeries1.UpdateValue = velocityTemp *5;
       
       if(!TakeScreenShots)
          return;

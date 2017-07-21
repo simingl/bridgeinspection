@@ -30,7 +30,7 @@ public class ubdVelocity : MonoBehaviour {
 
         //equation to find speed 
         float movementPerFrame = Vector3.Distance(velocityVector, ubdTransform.position);
-        velocityTemp = (movementPerFrame / Time.deltaTime)*100;
+        velocityTemp = (movementPerFrame / Time.deltaTime);
         velocityVector = ubdTransform.position;
 
         velocityOut.text = velocityTemp.ToString();
