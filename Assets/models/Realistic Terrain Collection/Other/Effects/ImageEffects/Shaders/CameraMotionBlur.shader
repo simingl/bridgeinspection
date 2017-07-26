@@ -56,12 +56,12 @@
 
 	struct v2f 
 	{
-		float4 pos : SV_POSITION;
+		float4 pos : POSITION;
 		float2 uv  : TEXCOORD0;
 	};
 				
 	sampler2D _MainTex;
-	sampler2D_float _CameraDepthTexture;
+	sampler2D _CameraDepthTexture;
 	sampler2D _VelTex;
 	sampler2D _NeighbourMaxTex;
 	sampler2D _NoiseTex;
@@ -95,7 +95,7 @@
 		return o;
 	}
 	
-	float4 CameraVelocity(v2f i) : SV_Target
+	float4 CameraVelocity(v2f i) : COLOR
 	{
 		float2 depth_uv = i.uv;
 
@@ -105,7 +105,7 @@
 		#endif
 
 		// read depth
-		float d = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, depth_uv);
+		float d = UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture, depth_uv));
 		
 		// calculate position from pixel from depth
 		float3 clipPos = float3(i.uv.x*2.0-1.0, (i.uv.y)*2.0-1.0, d);
@@ -149,7 +149,7 @@
 	}
 
 	// find dominant velocity for each tile
-	float4 TileMax(v2f i) : SV_Target
+	float4 TileMax(v2f i) : COLOR
 	{
 		float2 uvCorner = i.uv - _MainTex_TexelSize.xy * (_MaxRadiusOrKInPaper * 0.5);
   	  	float2 maxvel = float2(0,0);
@@ -167,7 +167,7 @@
 	}
 
 	// find maximum velocity in any adjacent tile
-	float4 NeighbourMax(v2f i) : SV_Target
+	float4 NeighbourMax(v2f i) : COLOR
 	{
 		float2 x_ = i.uv;
 
@@ -186,7 +186,7 @@
   	  	return float4(nx, 0, 0);		
 	}
 	 	 	
-	float4 Debug(v2f i) : SV_Target
+	float4 Debug(v2f i) : COLOR
 	{
 		return saturate( float4(tex2D(_MainTex, i.uv).x,abs(tex2D(_MainTex, i.uv).y),-tex2D(_MainTex, i.uv).xy) * _DisplayVelocityScale);
 	}
@@ -209,7 +209,7 @@
 		return clamp(1.0 - (za - zb) / _SoftZDistance, 0.0, 1.0);
 	}
 
-	float4 SimpleBlur (v2f i) : SV_Target
+	float4 SimpleBlur (v2f i) : COLOR
 	{
 		float2 x = i.uv;
 		float2 xf = x;
@@ -233,7 +233,7 @@
 		return sum;
 	}
 
-	float4 ReconstructFilterBlur(v2f i) : SV_Target
+	float4 ReconstructFilterBlur(v2f i) : COLOR
 	{	
 		// uv's
 
@@ -251,7 +251,7 @@
 		float4 cx = tex2Dlod(_MainTex, float4(x,0,0));				// color at x
 		float2 vx = tex2Dlod(_VelTex, float4(xf,0,0)).xy;			// vel at x 
 
-		float zx = SAMPLE_DEPTH_TEXTURE_LOD(_CameraDepthTexture, float4(x,0,0));
+		float zx = UNITY_SAMPLE_DEPTH(tex2Dlod(_CameraDepthTexture, float4(x,0,0)));
 		zx = -Linear01Depth(zx);
 
 		// random offset [-0.5, 0.5]
@@ -286,7 +286,7 @@
 			// velocity at y 
 			float2 vy = tex2Dlod(_VelTex, float4(yf,0,0)).xy;
 
-			float zy = SAMPLE_DEPTH_TEXTURE_LOD(_CameraDepthTexture, float4(y,0,0)); 
+			float zy = UNITY_SAMPLE_DEPTH(tex2Dlod(_CameraDepthTexture, float4(y,0,0) )); 
 			zy = -Linear01Depth(zy);
 			float f = softDepthCompare(zx, zy);
 			float b = softDepthCompare(zy, zx);
@@ -300,7 +300,7 @@
 		return sum;
 	}
 
-	float4 ReconstructionDiscBlur (v2f i) : SV_Target
+	float4 ReconstructionDiscBlur (v2f i) : COLOR
 	{
 		float2 xf = i.uv;
 		float2 x = i.uv;
@@ -317,7 +317,7 @@
 		float2 vx 			= tex2Dlod(_VelTex, float4(xf,0,0)).xy;			// vel at x 
 
 		float4 noise 		= tex2Dlod(_NoiseTex, float4(i.uv,0,0)*11.0f)*2-1;
-		float zx 			= SAMPLE_DEPTH_TEXTURE_LOD(_CameraDepthTexture, float4(x,0,0));
+		float zx 			= UNITY_SAMPLE_DEPTH(tex2Dlod(_CameraDepthTexture, float4(x,0,0)));
 
 		zx = -Linear01Depth(zx);
 
@@ -348,7 +348,7 @@
 			// velocity at y 
 			float2 vy = tex2Dlod(_VelTex, float4(yf.xy,0,0)).xy;
 
-			float zy = SAMPLE_DEPTH_TEXTURE_LOD(_CameraDepthTexture, float4(y.xy,0,0) ); 
+			float zy = UNITY_SAMPLE_DEPTH(tex2Dlod(_CameraDepthTexture, float4(y.xy,0,0) )); 
 			zy = -Linear01Depth(zy);
 
 			float f = softDepthCompare(zx, zy);
@@ -363,7 +363,7 @@
 
 			vy = tex2Dlod(_VelTex, float4(yf.zw,0,0)).xy;
 
-			zy = SAMPLE_DEPTH_TEXTURE_LOD(_CameraDepthTexture, float4(y.zw,0,0) ); 
+			zy = UNITY_SAMPLE_DEPTH(tex2Dlod(_CameraDepthTexture, float4(y.zw,0,0) )); 
 			zy = -Linear01Depth(zy);
 
 			f = softDepthCompare(zx, zy);
@@ -380,7 +380,7 @@
 		return sum / weight;
 	}
 
-	float4 MotionVectorBlur (v2f i) : SV_Target
+	float4 MotionVectorBlur (v2f i) : COLOR
 	{
 		float2 x = i.uv;
 
@@ -423,11 +423,15 @@ Subshader {
 	// pass 0
 	Pass {
 		ZTest Always Cull Off ZWrite On Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment CameraVelocity
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x 
 
 		ENDCG
 	}
@@ -435,11 +439,15 @@ Subshader {
 	// pass 1
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment Debug
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x 
 
 		ENDCG
 	}
@@ -447,11 +455,15 @@ Subshader {
 	// pass 2
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment TileMax
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x       
 
 		ENDCG
 	}
@@ -459,11 +471,15 @@ Subshader {
 	// pass 3
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment NeighbourMax
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x       
 
 		ENDCG
 	}
@@ -471,11 +487,15 @@ Subshader {
 	// pass 4
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert 
 		#pragma fragment ReconstructFilterBlur
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x       
 
 		ENDCG
 	}
@@ -483,33 +503,45 @@ Subshader {
 	// pass 5
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment SimpleBlur
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x       
 		ENDCG
 	}
 
   	// pass 6
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment MotionVectorBlur
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x
 		ENDCG
 	}
 
   	// pass 7
 	Pass {
 		ZTest Always Cull Off ZWrite Off Blend Off
+		Fog { Mode off }      
 
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma vertex vert
 		#pragma fragment ReconstructionDiscBlur
+		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x
 		ENDCG
 	}  	
   }
