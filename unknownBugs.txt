@@ -1,0 +1,8 @@
+NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.UI.InputField.GenerateCaret (UnityEngine.UI.VertexHelper vbo, Vector2 roundingOffset) (at C:/buildslave/unity/build/Extensions/guisystem/UnityEngine.UI/UI/Core/InputField.cs:1981)
+UnityEngine.UI.InputField.OnFillVBO (UnityEngine.Mesh vbo) (at C:/buildslave/unity/build/Extensions/guisystem/UnityEngine.UI/UI/Core/InputField.cs:1911)
+UnityEngine.UI.InputField.UpdateGeometry () (at C:/buildslave/unity/build/Extensions/guisystem/UnityEngine.UI/UI/Core/InputField.cs:1872)
+UnityEngine.UI.InputField.Rebuild (CanvasUpdate update) (at C:/buildslave/unity/build/Extensions/guisystem/UnityEngine.UI/UI/Core/InputField.cs:1830)
+UnityEngine.UI.CanvasUpdateRegistry.PerformUpdate () (at C:/buildslave/unity/build/Extensions/guisystem/UnityEngine.UI/UI/Core/CanvasUpdateRegistry.cs:149)
+UnityEngine.Canvas:SendWillRenderCanvases()
+
