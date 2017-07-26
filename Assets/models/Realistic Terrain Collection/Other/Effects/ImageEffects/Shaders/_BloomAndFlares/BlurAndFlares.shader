@@ -11,17 +11,17 @@ Shader "Hidden/BlurAndFlares" {
 	#include "UnityCG.cginc"
 	
 	struct v2f {
-		half4 pos : SV_POSITION;
+		half4 pos : POSITION;
 		half2 uv : TEXCOORD0;
 	};
 
 	struct v2f_opts {
-		half4 pos : SV_POSITION;
+		half4 pos : POSITION;
 		half2 uv[7] : TEXCOORD0;
 	};
 
 	struct v2f_blur {
-		half4 pos : SV_POSITION;
+		half4 pos : POSITION;
 		half2 uv : TEXCOORD0;
 		half4 uv01 : TEXCOORD1;
 		half4 uv23 : TEXCOORD2;
@@ -87,12 +87,12 @@ Shader "Hidden/BlurAndFlares" {
 		return o;
 	}	
 
-	half4 fragPostNoBlur (v2f i) : SV_Target {
+	half4 fragPostNoBlur (v2f i) : COLOR {
 		half4 color = tex2D (_MainTex, i.uv);
 		return color * 1.0/(1.0 + Luminance(color.rgb) + 0.5); // this also makes it a little noisy
 	}
 
-	half4 fragGaussBlur (v2f_blur i) : SV_Target {
+	half4 fragGaussBlur (v2f_blur i) : COLOR {
 		half4 color = half4 (0,0,0,0);
 		color += 0.225 * tex2D (_MainTex, i.uv);
 		color += 0.150 * tex2D (_MainTex, i.uv01.xy);
@@ -106,7 +106,7 @@ Shader "Hidden/BlurAndFlares" {
 		return color;
 	} 
 
-	half4 fragPreAndCut (v2f_opts i) : SV_Target {
+	half4 fragPreAndCut (v2f_opts i) : COLOR {
 		half4 color = tex2D (_MainTex, i.uv[0]);
 		color += tex2D (_MainTex, i.uv[1]);
 		color += tex2D (_MainTex, i.uv[2]);
@@ -120,7 +120,7 @@ Shader "Hidden/BlurAndFlares" {
 		return color;
 	}
 
-	half4 fragStretch (v2f_opts i) : SV_Target {
+	half4 fragStretch (v2f_opts i) : COLOR {
 		half4 color = tex2D (_MainTex, i.uv[0]);
 		color = max (color, tex2D (_MainTex, i.uv[1]));
 		color = max (color, tex2D (_MainTex, i.uv[2]));
@@ -131,7 +131,7 @@ Shader "Hidden/BlurAndFlares" {
 		return color;
 	}	
 	
-	half4 fragPost (v2f_opts i) : SV_Target {
+	half4 fragPost (v2f_opts i) : COLOR {
 		half4 color = tex2D (_MainTex, i.uv[0]);
 		color += tex2D (_MainTex, i.uv[1]);
 		color += tex2D (_MainTex, i.uv[2]);
@@ -146,10 +146,13 @@ Shader "Hidden/BlurAndFlares" {
 	
 Subshader {
 	  ZTest Always Cull Off ZWrite Off
+	  Fog { Mode off } 
  Pass {     
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma exclude_renderers flash
       #pragma vertex vert
       #pragma fragment fragPostNoBlur
       
@@ -160,6 +163,8 @@ Subshader {
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma exclude_renderers flash
       #pragma vertex vertStretch
       #pragma fragment fragStretch
       
@@ -171,6 +176,8 @@ Subshader {
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma exclude_renderers flash
       #pragma vertex vertWithMultiCoords
       #pragma fragment fragPreAndCut
       
@@ -182,6 +189,8 @@ Subshader {
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma exclude_renderers flash
       #pragma vertex vertWithMultiCoords
       #pragma fragment fragPost
       
@@ -192,6 +201,8 @@ Subshader {
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma exclude_renderers flash
       #pragma vertex vertWithMultiCoords2
       #pragma fragment fragGaussBlur
       

@@ -10,7 +10,7 @@ Shader "Hidden/BlendOneOne" {
 	#include "UnityCG.cginc"
 	
 	struct v2f {
-		float4 pos : SV_POSITION;
+		float4 pos : POSITION;
 		float2 uv : TEXCOORD0;
 	};
 		
@@ -24,7 +24,7 @@ Shader "Hidden/BlendOneOne" {
 		return o;
 	}
 	
-	half4 frag(v2f i) : SV_Target {
+	half4 frag(v2f i) : COLOR {
 		return tex2D(_MainTex, i.uv) * _Intensity;
 	}
 
@@ -37,8 +37,10 @@ Subshader {
   		Blend One One
   
 	  ZTest Always Cull Off ZWrite Off
+	  Fog { Mode off }      
 
       CGPROGRAM
+      #pragma fragmentoption ARB_precision_hint_fastest
       #pragma vertex vert
       #pragma fragment frag
       ENDCG

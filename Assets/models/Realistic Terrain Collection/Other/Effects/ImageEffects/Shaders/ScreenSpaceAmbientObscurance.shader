@@ -46,7 +46,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 	float4 _ProjInfo;
 	float4x4 _ProjectionInv; // ref only
 
-	sampler2D_float _CameraDepthTexture;
+	sampler2D _CameraDepthTexture;
 	sampler2D _Rand;
 	sampler2D _AOTex;
 	sampler2D _MainTex;
@@ -68,7 +68,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 
 	struct v2f 
 	{
-		float4 pos : SV_POSITION;
+		float4 pos : POSITION;
 		float2 uv : TEXCOORD0;
 		float2 uv2 : TEXCOORD1;
 	};
@@ -148,7 +148,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 	float3 GetPosition(float2 ssP) {
 		float3 P;
 
-		P.z = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, ssP.xy);
+		P.z = UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture, ssP.xy));
 
 		// Offset to pixel center
 		P = ReconstructCSPosition(float2(ssP) /*+ float2(0.5, 0.5)*/, P.z);
@@ -161,7 +161,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 		float2 ssP = saturate(float2(ssR*unitOffset) + ssC);
 
 		float3 P;
-		P.z = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, ssP.xy);
+		P.z = UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture, ssP.xy));
 
 		// Offset to pixel center
 		P = ReconstructCSPosition(float2(ssP)/* + float2(0.5, 0.5)*/, P.z);
@@ -192,7 +192,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 	    return f * f * f * max((vn - bias) / (epsilon + vv), 0.0);
 	}
 
-	float4 fragAO(v2f i) : SV_Target
+	float4 fragAO(v2f i) : COLOR
 	{
 		float4 fragment = fixed4(1,1,1,1);
 
@@ -244,7 +244,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 		return fragment;
 	}
 
-	float4 fragUpsample (v2f i) : SV_Target
+	float4 fragUpsample (v2f i) : COLOR
 	{
 		float4 fragment = fixed4(1,1,1,1);
 
@@ -257,13 +257,13 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 		return fragment;
 	}
 
-	float4 fragApply (v2f i) : SV_Target
+	float4 fragApply (v2f i) : COLOR
 	{
 		float4 ao = tex2D(_AOTex, i.uv2.xy);
 		return tex2D(_MainTex, i.uv.xy) * ao.rrrr;
 	}
 
-	float4 fragApplySoft (v2f i) : SV_Target
+	float4 fragApplySoft (v2f i) : COLOR
 	{
 		float4 color = tex2D(_MainTex, i.uv.xy);
 
@@ -276,7 +276,7 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 		return color * float4(ao,ao,ao,5)/5;
 	}
 
-	float4 fragBlurBL (v2f i) : SV_Target
+	float4 fragBlurBL (v2f i) : COLOR
 	{
 		float4 fragment = float4(1,1,1,1);
 
@@ -311,7 +311,8 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 				float value  = temp.r;
 
 				// spatial domain: offset gaussian tap
-				float weight = 0.3 + gaussian[abs(r)];
+				int index = r; if (index<0) index = -index;
+				float weight = 0.3 + gaussian[index];
 
 				// range domain (the "bilateral" weight). As depth difference increases, decrease weight.
 				weight *= max(0.0, 1.0 - (2000.0 * EDGE_SHARPNESS) * abs(tapKey - key));
@@ -336,12 +337,16 @@ SubShader {
 	// 0: get ao
 	Pass {
 		ZTest Always Cull Off ZWrite Off
+		Fog { Mode off }
 
 		CGPROGRAM
 
+		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma vertex vert
 		#pragma fragment fragAO
 		#pragma target 3.0
+		#pragma glsl	
+		#pragma exclude_renderers d3d11_9x flash
 		
 		ENDCG
 	}
@@ -349,12 +354,16 @@ SubShader {
 	// 1: bilateral blur
 	Pass {
 		ZTest Always Cull Off ZWrite Off
+		Fog { Mode off }
 
 		CGPROGRAM
 
+		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma vertex vert
 		#pragma fragment fragBlurBL
 		#pragma target 3.0 
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x flash
 		
 		ENDCG
 	}
@@ -362,12 +371,16 @@ SubShader {
 	// 2: apply ao
 	Pass {
 		ZTest Always Cull Off ZWrite Off
+		Fog { Mode off }
 
 		CGPROGRAM
 
+		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma vertex vert
 		#pragma fragment fragApply
 		#pragma target 3.0 
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x flash
 		
 		ENDCG
 	}
@@ -375,12 +388,16 @@ SubShader {
 	// 3: apply with a slight box filter
 	Pass {
 		ZTest Always Cull Off ZWrite Off
+		Fog { Mode off }
 
 		CGPROGRAM
 
+		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma vertex vert
 		#pragma fragment fragApplySoft
 		#pragma target 3.0 
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x flash
 		
 		ENDCG
 	}
@@ -388,12 +405,16 @@ SubShader {
 	// 4: in case you want to blur in high rez for nicer z borders
 	Pass {
 		ZTest Always Cull Off ZWrite Off
+		Fog { Mode off }
 
 		CGPROGRAM
 
+		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma vertex vert
 		#pragma fragment fragUpsample
 		#pragma target 3.0 
+		#pragma glsl
+		#pragma exclude_renderers d3d11_9x flash
 		
 		ENDCG
 	}

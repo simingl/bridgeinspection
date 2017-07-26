@@ -10,7 +10,7 @@ Shader "Hidden/ColorCorrectionSelective" {
 	#include "UnityCG.cginc"
 	
 	struct v2f {
-		float4 pos : SV_POSITION;
+		float4 pos : POSITION;
 		float2 uv : TEXCOORD0;
 	};
 	
@@ -26,7 +26,7 @@ Shader "Hidden/ColorCorrectionSelective" {
 		return o;
 	} 
 	
-	fixed4 frag(v2f i) : SV_Target {
+	fixed4 frag(v2f i) : COLOR {
 		fixed4 color = tex2D (_MainTex, i.uv); 
 	
 		fixed diff = saturate (2.0 * length (color.rgb - selColor.rgb));
@@ -39,9 +39,11 @@ Shader "Hidden/ColorCorrectionSelective" {
 Subshader {
  Pass {
 	  ZTest Always Cull Off ZWrite Off
+	  Fog { Mode off }      
 
       CGPROGRAM
       
+      #pragma fragmentoption ARB_precision_hint_fastest
       #pragma vertex vert
       #pragma fragment frag
       
