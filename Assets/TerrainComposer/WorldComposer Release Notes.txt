@@ -1,0 +1,303 @@
+This text file contains features, improvements and fixes for each update.
+
+If you experience any issues please contact me at Nathaniel_Doldersum@Hotmail.com
+----------------------------------------------------------------------------------
+
+
+WorldComposer version 1.53
+--------------------------------
+
+Fixes:
+- Added support for Unity 2017
+
+
+WorldComposer version 1.51
+--------------------------------
+
+Changes:
+- Changed WorldComposer manual for creating Bing keys. Bing keys now need for
+  'Application type' to be 'Public Windows app' or 'Windows Phone app' to have
+  50.000 transactions available in 24 hours. You need to create a new Bing key
+  with either these 2 options or otherwise Bing key will expire after 125.000 
+  transactions. 
+
+Improvements:
+- Added +/- keys for zooming when having a mouse without scroll wheel.
+- Changed text color of map type.
+
+Fixes:
+- Fixed error in Unity5.5, no longer needs Unity's Api updater.
+
+
+WorldComposer version 1.5
+--------------------------------
+** Please read the upgrade guide in the WorldComposer manual on page 4.
+
+Fixes:
+- RTP was broken.
+- Terrain neighbors were incorrect, resulting in dark stripes on the terrain edges.
+
+Improvements:
+- Better overview of transactions and related warnings to them.
+
+
+
+WorldComposer version 1.48
+--------------------------------
+
+Fixes:
+- Heightmap y was flipped.
+
+
+WorldComposer version 1.47
+--------------------------------
+
+Improvements:
+- WorldComposer's image tiling system is the same now as TerrainComposer/WorldMachine tiling system. 
+  Images need to be re-exported. For shadow removal images this is not needed, only need to click the 'Slice' button again.
+
+
+
+WorldComposer version 1.45
+--------------------------------
+
+Features:
+- 8k texture export for Unity5.
+
+Fixes:
+- Normalizing heightmap went wrong on sea level.
+
+
+
+WorldComposer version 1.42
+--------------------------------
+
+Features:
+- Normalize heightmaps. Exported heightmaps can be normalized, the real world scale for Unity terrain height is automatically calculated.
+  This option is default now, because it's much more easy to use a normalized heightmaps with TerrainComposer and Unity terrain brushes.
+  When enabled WorldComposer creates a second Raw heightmap file with '_N' added to the filename.
+  On an already exported heightmap area this option can be enabled in 'Create Terrain tab -> Normalize Heightmap.
+  
+Improvements:
+- The TerrainComposer folder can now be moved inside the project into another folder.
+- Heightmap and satellite images are not exported at the same time, but they are queued. This results in a faster export.
+- Vertical scroll bar for tabs if they exceed WorldComposer window height.
+- TerrainComposer window will only open if 'Export to TerrainComposer' is enabled after click the 'Create Terrain' button. Before it
+  opened whenever using WorldComposer.
+- Arcinfo ASCII Converter now automatically replaces comma for dots, so height values can be used if they have a comma.
+
+
+
+WorldComposer version 1.3
+--------------------------------
+
+Features:
+- Manual override in Heightmap Export. WC calculates available heightmap at the center of an area, but it can be of a higher resolution
+  around it. With enabling 'manual' toggle you can select a higher heightmap resolution to grab the maximum detail in such area.
+
+Improvements:
+- Works direcly in Unity5 without the need of the Api Updater.
+
+
+
+WorldComposer version 1.2
+--------------------------------
+
+Features:
+- Converter from ArcInfo ASCII to raw 16 bit greyscale heightmaps.
+
+
+Improvements:
+- Updated Documentation.
+
+
+Fixes:
+- Displaying label in WC Map in Unity5.
+- Correct shadow removal for combined images with a different resolution than power of 2.
+- Pick/Resize button issue.
+- Displaying start position for non active area's.
+
+
+WorldComposer version 1.15
+--------------------------------
+
+Features:
+- Export any raw image resolution for tiles. Exporting raw images is fully streamed now.
+
+Improvements:
+- Updated Documentation.
+- Getting started text for entering the Bing key.
+- Can use image offset with exporting to get heightmap and satellite imagery exactly fitting. Read in the documentation how to use this.
+- Image tiles can be automatically tracked with start position, so the export can be resumed from the right position after stopping.
+  This can be enabled/disabled in the 'Settings' tab.
+- Reset button for image start position.
+- Memory usage warning. This can be enabled/disabled in the 'Settings' tab.
+- In the 'Create Terrain' tab no longer a too high Heightmap resolution can be selected.
+- Import settings is removed from Image Export and has to be done in the 'Create Terrain' tab in image import settings. This is because
+  enabling this will slow down the export.
+- When exporting hangs, all exports can be resetted in the 'Settings' tab.
+
+
+WorldComposer version 1.11
+--------------------------------
+
+Features:
+- Content fill in image editor for combined raw images to remove shadows,snow, etc. The image editor works now only for combined raw images, because this will 
+  avoid seams. The whole process is streamed and buffered, it can do any size of combined raw image.
+
+Improvements:
+- Progress bars on image export, heightmap export and image editor.
+
+Fixes:
+- GUI in Unity 4.3.
+- Water heightmap export.
+
+
+WorldComposer version 1.01
+--------------------------------
+
+Features:
+- Integration with RTP3. If Relief Terrain Pack is in the project, WorldComposer will apply a basic RTP setup to each created terrain.
+- Can export images as a Raw. Can combine the export raw images into 1 big raw image with the 'Combine Images' button. This button is only visable if only 
+  Raw is selected. The exporting goes faster then Jpg and Png. It is not possible to create a terrain with raw images. But this raw format is for using them 
+  in image editing programs like photoshop. After editing the combined raw image it can be sliced up again into Jpg images by activating Jpg and Raw, then 
+  the 'Slice Images' button needs to be clicked.
+
+Improvements:
+- Icons on the button tabs.
+- Updated documentation.
+
+Fixes:
+- Created terrains have correct size now, the size was variating do to heightmap resolution.
+- Exporting WorldFile for opening exported satellite images in other programs like Global Mapper works correctly now.
+- Image blueisch color square from Bing randomly in some images. Now images shouldn't contain them anymore, Bing sometimes returns images with missing pixels,
+  WC checks for this and if there is, redownloads the image.
+
+
+WorldComposer version 0.98
+--------------------------------
+
+Improvements:
+- C# script translated to Java script. Uses only TerrainComposer folder now.
+
+Fixes:
+- Image World File export works now.
+
+
+
+WorldComposer version 0.97
+--------------------------------
+
+Features:
+- Terrain Scale. Terrains can be scaled up and down now, using scale next to terrain height. Scale 1 is default and real world scale.
+
+Improvements:
+- Jpg and png toggle are white now.
+
+
+
+WorldComposer version 0.95
+--------------------------------
+
+Improvements:
+- Updated documentation including troubleshooting page.
+- Can manually enter latitude and longtitude to create an area.
+- Heightmap offset. Depending on the area Bing can return the heightmap not exactly fitted to the satellite images, you can correct this by changing the heightmap
+  offset x and y, and then click the 'generate heightmap', you can change the offset and repeat this process until it fits. In TerrainComposer this can be done 
+  in the filter of the heightmap layer under settings -> tile offset x and y.
+- TerrainDetail script is added to every created terrain, so the terrain settings can be set for runtime.
+
+
+Fixes:
+- Better saving method of global settings. 
+
+
+WorldComposer version 0.94
+--------------------------------
+
+Improvements:
+- Global Settings are saved before doing memory critical operations.
+
+Fixes:
+- Image export resolution 512, last images weren't saved.
+
+
+
+WorldComposer version 0.93
+--------------------------------
+
+Features:
+- JPG Image export for Mac. Added jpg encoder script instead of using .Net bitmap which isn't available for Mac.
+- Smooth button in standalone. Next to the smooth button is the smooth strength which is a float textfield. The default smooth strength is 1.
+
+Improvements:
+- Jpg images save faster.
+- Image export goes faster. I moved applying image import settings creating terrain, because when exporting images it takes too much time to apply.
+- With creating terrain, import image settings will be applied after all tiles are created (when 'Auto' is enabled, next to the 'Apply' button of image import
+  settings).
+- In standalone terrain tile names have format _x_y now.
+- Global Settings prefab that hold all saved data, is used directly now instead of Instantiating in the Scene.
+
+Fixes:
+- Image editor works correctly now for both jpg and png.
+- Optional start image export tile position is corrected when out of bound on resizing.
+
+
+
+WorldComposer version 0.91
+--------------------------------
+
+Improvements:
+- GUI button colors.
+
+Fixes:
+- Heightmap exports right now for resolution that is not devidable by 32.
+- No Jpg export function for Mac. As WC uses .Net Drawing Imaging for this, which is not available on the Mac. Can use external software to convert png to jpg.
+
+
+
+WorldComposer version 0.9
+-------------------------------
+
+Features:
+- Image Editor. E.g to make shadows lighter.
+- Auto update.
+
+Improvements:
+- Standalone heightmap generate curve, with default curve that fixes area water export.
+- Standaline generate heightmap button, to regenerate the heightmap after changing the heigthmap curve.
+- Full Key display behind Key Input.
+- Long path display behind Heightmap,Image and Terrain path.
+
+
+Fixes:
+- Heightmap exporting hang. When exporting a heightmap, the export will stop if the heights of an area block are all zero in the map. As sometimes the 
+  server returns a 'zero' block, and WorldComposer checks for this and assumes it is a wrong reading and then repeats the server call for that block. The fix  
+  will after 2x asume the heights are really zero for that block.
+
+
+
+WorldComposer 1.0 beta version 6
+--------------------------------
+
+Fixes:
+- Creating terrains from PNG images.
+
+
+
+WorldComposer 1.0 beta version 5
+--------------------------------
+
+Features:
+- WorldComposer can run as a standalone.
+- Added auto terrain creation menu. Now terrain can be auto created for each exported area.
+- Added change link options for path, names, heightmap resolution and image resolution. If you change a linked component, the ones 
+  that are linked will copy the settings from the linked component.
+- Can export multiple areas in a row now. A white outline means that WC is exporting that area, an orange outline means that the area is on hold and will be
+  exported after the white outline area is finished exporting. Shift click 'Export Heightmap/Image' to start exporting all areas in a region, control click to 
+  'Export Heightmap/Image' (or they could be changed into 'Stop' button), to stop exporting all areas in the region.
+- Added 'Act' toggle for heightmap and image export, if deactivated it will pause the export. This can be handy for selecting the export for multiple areas.
+- Added 'Mouse sensivity' in settings menu for map scrolling speed.
+- Added start position select for image export. As when an export would, you won't need to start from the first tile again.
+- If you use more Bing keys, WC will switch them automatically when reaching 48.000 server calls for one key. To prevent the passing of the maximum 50.000 calls 
+  limit within 24 hours for a key.
