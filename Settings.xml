@@ -5,6 +5,6 @@
   </hud>
   <scene />
   <ros>
-    <ROSCoreIP>111.111.111.111</ROSCoreIP>
+    <ROSCoreIP>192.165.1.11</ROSCoreIP>
   </ros>
 </Settings>

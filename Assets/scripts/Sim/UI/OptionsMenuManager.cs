@@ -8,7 +8,7 @@ public class OptionsMenuManager : MonoBehaviour {
 
     private GameManager gameManager;
 
-    private Canvas optionsCanvas;
+    public GameObject optionsCanvas;
 
 
     public Light UBDHeadlightR;
@@ -18,8 +18,9 @@ public class OptionsMenuManager : MonoBehaviour {
 
     public Text currentIp;
 
-    public GameObject testValuesPanel;    
+    public GameObject testValuesPanel;
 
+    private bool active = false;
 
 
     // Use this for initialization
@@ -28,8 +29,8 @@ public class OptionsMenuManager : MonoBehaviour {
         gameManager = GameManager.getInstance();
         getIPaddress();
 
-        optionsCanvas = GetComponent<Canvas>();
-        optionsCanvas.enabled = false;
+
+        optionsCanvas.SetActive(active);
 
     
 		
@@ -56,7 +57,9 @@ public class OptionsMenuManager : MonoBehaviour {
     //Toggle options Canvas function
     public void toggleOptionsCanvas()
     {
-        optionsCanvas.enabled = !optionsCanvas.enabled;
+        active = !active;
+        optionsCanvas.SetActive(active);
+
     }
 
 
