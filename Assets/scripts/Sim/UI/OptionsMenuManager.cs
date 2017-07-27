@@ -87,7 +87,7 @@ public class OptionsMenuManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Invalid IP address "+newIp);
+            Debug.Log("Invalid IP address "+newIp); 
         }
 
     }
