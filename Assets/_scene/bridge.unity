@@ -10488,8 +10488,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2045896816}
   - component: {fileID: 2045896818}
-  - component: {fileID: 2045896819}
   - component: {fileID: 2045896817}
+  - component: {fileID: 2045896819}
   m_Layer: 9
   m_Name: drone
   m_TagString: Player
@@ -10505,7 +10505,7 @@ Transform:
   m_GameObject: {fileID: 2045896815}
   m_LocalRotation: {x: 0, y: -0.48862126, z: 0, w: 0.872496}
   m_LocalPosition: {x: -393.85, y: -36.46, z: 28.66}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children:
   - {fileID: 811415443}
   - {fileID: 520151660}
@@ -10539,20 +10539,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2045896819
-MeshCollider:
+--- !u!65 &2045896819
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2045896815}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
+  m_Size: {x: 20, y: 1, z: 20}
+  m_Center: {x: 0, y: 0.44, z: 0}
 --- !u!1 &2053786485
 GameObject:
   m_ObjectHideFlags: 0
