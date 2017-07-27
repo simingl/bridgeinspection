@@ -57,6 +57,6 @@ public class movementControl : MonoBehaviour {
         this.transform.Translate(Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime);
 
         //Linear movement up and down
-        //this.transform.Translate(Input.GetAxis("Jump") * Vector3.up * Time.deltaTime);
+        this.transform.Translate(Input.GetAxis("Jump") * Vector3.up * Time.deltaTime);
     }
 }
