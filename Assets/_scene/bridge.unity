@@ -1057,7 +1057,7 @@ MonoBehaviour:
   RedrawNow: 1
   Margin: {x: 1, y: 1, z: 1, w: 1}
   DefaultPlotMaterial: {fileID: 2100000, guid: 4c4c4225ea853a54bbd75e7fd97c5493, type: 2}
-  AxesThickness: 0.5
+  AxesThickness: 1
   AxisMaterial: {fileID: 2100000, guid: f2546e699f1f973439d54e250b7cc036, type: 2}
   AxesDrawAt: {x: 0, y: 0}
   AxisColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fafda305fe73334eb3620892bf82894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drone: {fileID: 0}
+  drone: {fileID: 2045896815}
 --- !u!1 &123005710
 GameObject:
   m_ObjectHideFlags: 0
