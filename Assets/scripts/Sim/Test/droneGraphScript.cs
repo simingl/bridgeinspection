@@ -31,7 +31,7 @@ public class droneGraphScript : MonoBehaviour {
         }
 
         //(-x, x, -y , y)
-        droneGraph.setRanges(-5, 5, -5, 5);
+        droneGraph.setRanges(-2, 3, -2, 2);
 
         List<Vector2> velData = new List<Vector2>();
 
