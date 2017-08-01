@@ -13,9 +13,16 @@ public class camView : MonoBehaviour {
 
     private int viewPosition;
 
+    private void Awake()
+    {
+        //viewPosition is used as reference for playerControlSelection
+        //so it needed to be initialized in Awake
+        viewPosition = 1;
+    }
+
     // Use this for initialization
     void Start () {
-        viewPosition = 1;
+        
         getPosition(viewPosition);
 
 		
@@ -60,6 +67,11 @@ public class camView : MonoBehaviour {
     public void setCamViewPosition(int newposition)
     {
         viewPosition = newposition;
+    }
+
+    public int getViewPositionInt()
+    {
+        return viewPosition;
     }
 
 }

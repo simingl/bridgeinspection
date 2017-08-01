@@ -47,6 +47,14 @@ public class movementControl : MonoBehaviour {
 
     private void flyingMovement()
     {
+        int increaseSpeed = 1;
+
+        //increase the speed of the free cam
+        if (this.gameObject.name == "FreeCamObject")
+        {
+            increaseSpeed = 4;
+        }
+        
         //Angular movement
         //get axis to rotate around
         Vector3 leftaxis = transform.TransformDirection(Vector3.up);
@@ -54,9 +62,9 @@ public class movementControl : MonoBehaviour {
         this.transform.RotateAround(transform.position, leftaxis, Input.GetAxis("Horizontal"));
 
         //Linear movement forward and back
-        this.transform.Translate(Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime);
+        this.transform.Translate(Input.GetAxis("Vertical") * Vector3.forward * increaseSpeed * Time.deltaTime);
 
         //Linear movement up and down
-        this.transform.Translate(Input.GetAxis("Jump") * Vector3.up * Time.deltaTime);
+        this.transform.Translate(Input.GetAxis("Jump") * Vector3.up * Time.deltaTime * increaseSpeed );
     }
 }
