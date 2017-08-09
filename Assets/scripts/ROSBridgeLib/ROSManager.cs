@@ -10,10 +10,14 @@ public class ROSManager{
 
     private Texture2D UBDCam;
 
+    private float Longitude;
+    private float Latitude;
+    private float Altitude;
+
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn = false;
 
-    private string ip = "134.197.86.203";
+    private string ip = "134.197.42.89";
 
     public static ROSManager getInstance(){
 		return instance;
@@ -21,7 +25,7 @@ public class ROSManager{
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
-                
+        
         ROSConnect();
         
     }
@@ -64,13 +68,35 @@ public class ROSManager{
             return UBDCam;       
     }
 
-    public void setIp(string newip)
-    {
+    public float getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        Latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        Longitude = longitude;
+    }
+
+    public float getAltitude() {
+        return Altitude;
+    }
+
+    public void setAltitude(float altitude) {
+        Altitude = altitude;
+    }
+
+    public void setIp(string newip) {
         ip = newip;
     }
 
-    public string getIp()
-    {
+    public string getIp() {
         return ip;
     }
     

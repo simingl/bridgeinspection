@@ -161,6 +161,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &97724435
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &183181412
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +329,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &187325339
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -366,6 +392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1001 &199664004
 Prefab:
   m_ObjectHideFlags: 0
@@ -503,22 +533,22 @@ Prefab:
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 170.51205
+      value: 131.20482
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -165
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 251.02411
+      value: 172.40964
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
@@ -720,6 +750,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &240952300
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -772,6 +813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &288753918 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1422660963866454, guid: c176c80a8bfccf04fb1fe7b644733513,
@@ -860,22 +905,22 @@ Prefab:
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 170.51205
+      value: 131.20482
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -305
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 251.02411
+      value: 172.40964
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
@@ -1077,6 +1122,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &443943670
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1129,6 +1185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &497031015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1232,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &497031018
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1224,6 +1295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &503274988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1342,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &503274991
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1319,6 +1405,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &546616169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1452,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &546616172
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1001 &566446270
 Prefab:
   m_ObjectHideFlags: 0
@@ -1474,7 +1579,7 @@ Prefab:
     - target: {fileID: 224973487259337840, guid: f284db12c90c7544f92f5312dedbb45f,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -53.5
       objectReference: {fileID: 0}
     - target: {fileID: 224973487259337840, guid: f284db12c90c7544f92f5312dedbb45f,
         type: 2}
@@ -1693,7 +1798,7 @@ Prefab:
     - target: {fileID: 224247176840546912, guid: 35a4d2357cc0bd94fa6b31f004f700e8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 224247176840546912, guid: 35a4d2357cc0bd94fa6b31f004f700e8,
         type: 2}
@@ -2033,7 +2138,7 @@ Prefab:
     - target: {fileID: 224247176840546912, guid: 35a4d2357cc0bd94fa6b31f004f700e8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -92
       objectReference: {fileID: 0}
     - target: {fileID: 224247176840546912, guid: 35a4d2357cc0bd94fa6b31f004f700e8,
         type: 2}
@@ -2135,6 +2240,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &793080220
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -2187,6 +2303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &878099054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,6 +2350,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &878099057
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -2282,6 +2413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1001 &927551923
 Prefab:
   m_ObjectHideFlags: 0
@@ -2332,22 +2467,22 @@ Prefab:
     - target: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 170.51205
+      value: 131.20482
       objectReference: {fileID: 0}
     - target: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 341.0241
+      value: 262.40964
       objectReference: {fileID: 0}
     - target: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
         type: 2}
@@ -2585,22 +2720,22 @@ Prefab:
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 170.51205
+      value: 131.20482
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -235
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 251.02411
+      value: 172.40964
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
@@ -2950,7 +3085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 238.33333, y: -430.5}
+  m_AnchoredPosition: {x: 238.33331, y: -430.5}
   m_SizeDelta: {x: 366.66666, y: 681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018251022
@@ -3193,6 +3328,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1129639983
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3245,6 +3391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1144482482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,6 +3438,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1144482485
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3340,6 +3501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1259001194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,6 +3548,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1259001197
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3435,6 +3611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1263102090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,6 +3658,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1263102093
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3530,6 +3721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1265394966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,6 +3768,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1265394969
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3625,6 +3831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!224 &1265556555 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224247176840546912, guid: 35a4d2357cc0bd94fa6b31f004f700e8,
@@ -3702,6 +3912,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1297573457
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3754,6 +3975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1359347463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3797,6 +4022,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1359347466
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3849,6 +4085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!224 &1369021317 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224925371939413580, guid: 9ef1e71f3019a9a43af926394a1277ee,
@@ -3897,6 +4137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1369695597
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3949,6 +4200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1409759765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,12 +4396,12 @@ Prefab:
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -95
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1695854583784288, guid: 194366ff00caee04c8f983649928ccb2, type: 2}
       propertyPath: m_Name
@@ -4285,12 +4540,12 @@ Prefab:
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 170.51205
+      value: 131.20482
       objectReference: {fileID: 0}
     - target: {fileID: 224818720390388694, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 251.02411
+      value: 172.40964
       objectReference: {fileID: 0}
     - target: {fileID: 114940048507282010, guid: 194366ff00caee04c8f983649928ccb2,
         type: 2}
@@ -5066,6 +5321,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1574934573
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -5118,6 +5384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1579048670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,6 +5431,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1579048673
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -5213,6 +5494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!224 &1611121320 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224295042917765622, guid: b36b61453a274944b94bcf581a9e7aee,
@@ -5261,6 +5546,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1618343014
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -5313,6 +5609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1622416991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5356,6 +5656,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1622416994
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -5408,6 +5719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1683331017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,6 +5899,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1721941615
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -5636,6 +5962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1001 &1809806633
 Prefab:
   m_ObjectHideFlags: 0
@@ -5691,7 +6021,7 @@ Prefab:
     - target: {fileID: 224013473795416878, guid: 506ae0d6fd656db47a57d0898221aeeb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -117
       objectReference: {fileID: 0}
     - target: {fileID: 224013473795416878, guid: 506ae0d6fd656db47a57d0898221aeeb,
         type: 2}
@@ -5811,22 +6141,22 @@ Prefab:
     - target: {fileID: 224625870130071440, guid: c176c80a8bfccf04fb1fe7b644733513,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 753.5121
+      value: 583.70483
       objectReference: {fileID: 0}
     - target: {fileID: 224625870130071440, guid: c176c80a8bfccf04fb1fe7b644733513,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -211
       objectReference: {fileID: 0}
     - target: {fileID: 224625870130071440, guid: c176c80a8bfccf04fb1fe7b644733513,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 824.9759
+      value: 642.59033
       objectReference: {fileID: 0}
     - target: {fileID: 224625870130071440, guid: c176c80a8bfccf04fb1fe7b644733513,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 422
       objectReference: {fileID: 0}
     - target: {fileID: 224625870130071440, guid: c176c80a8bfccf04fb1fe7b644733513,
         type: 2}
@@ -5977,6 +6307,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1820784857
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -6029,6 +6370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!1 &1835526187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,6 +6417,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &1835526190
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -6124,6 +6480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!114 &2008124790 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114940048507282010, guid: 194366ff00caee04c8f983649928ccb2,
@@ -6290,6 +6650,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279f77eb9868464d89cdc49962453d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightmapMaximumLOD: 0
+  heightmapPixelError: 5
+  basemapDistance: 5000
+  castShadows: 0
+  draw: 1
+  treeDistance: 20000
+  detailObjectDistance: 250
+  detailObjectDensity: 1
+  treeBillboardDistance: 200
+  treeCrossFadeLength: 50
+  treeMaximumFullLODCount: 50
 --- !u!154 &2146922490
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -6342,3 +6713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f0c23c369ced4280fb03468feb847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  top: {fileID: 0}
+  right: {fileID: 0}
+  bottom: {fileID: 0}

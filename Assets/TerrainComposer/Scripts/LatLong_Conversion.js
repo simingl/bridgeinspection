@@ -9,8 +9,8 @@ function Start(){
    
     var counter : int = 0;
    
-    latlong[2].latitude = 49.34544372558594;
-    latlong[2].longitude = -119.579584441234;
+    latlong[2].latitude = 47.37776;
+    latlong[2].longitude = 8.554062;
    
     for(var p in latlong){
        

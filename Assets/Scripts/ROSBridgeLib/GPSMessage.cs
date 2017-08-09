@@ -34,9 +34,10 @@ public class GPSMessage : ROSBridgeSubscriber {
 	}
 	
 	public new static void CallBack(ROSBridgeMsg msg) {
-        GeoPointMsg imgMsg = msg as GeoPointMsg;
-        ROSManager.getInstance();
-        Debug.Log("FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-        Debug.Log(imgMsg.ToYAMLString());
+        GeoPointMsg LocationGPS = msg as GeoPointMsg;
+        ROSManager.getInstance().setLatitude(LocationGPS.GetLatitude());
+        ROSManager.getInstance().setLongitude(LocationGPS.GetLongitude());
+        ROSManager.getInstance().setAltitude(LocationGPS.GetAltitude());
+        Debug.Log(LocationGPS.ToYAMLString());
     }
 }
