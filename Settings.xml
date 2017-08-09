@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <hud>
+<<<<<<< HEAD
     <ShowUBDCamera>false</ShowUBDCamera>
   </hud>
   <scene />
   <ros>
     <ROSCoreIP />
+=======
+    <ShowUBDCamera>true</ShowUBDCamera>
+  </hud>
+  <scene />
+  <ros>
+    <ROSCoreIP>192.165.1.11</ROSCoreIP>
+>>>>>>> master
   </ros>
 </Settings>

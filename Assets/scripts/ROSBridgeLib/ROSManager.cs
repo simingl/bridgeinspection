@@ -17,7 +17,7 @@ public class ROSManager{
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn = false;
 
-    private string ip = "134.197.42.89";
+    private string ip = "134.197.86.203";
 
     public static ROSManager getInstance(){
 		return instance;
