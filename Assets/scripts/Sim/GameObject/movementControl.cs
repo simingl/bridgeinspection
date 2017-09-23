@@ -33,6 +33,8 @@ public class movementControl : MonoBehaviour {
 
     private void ubdMovement()
     {
+        float modifySpeed = 0.15f;
+        
         //Angular movement
         //get axis to rotate around
         Vector3 leftaxis = transform.TransformDirection(Vector3.up);
@@ -41,7 +43,7 @@ public class movementControl : MonoBehaviour {
 
         //Linear movement
         //Vector3.left is used because UBD transform is off 
-        this.transform.Translate(Input.GetAxis("Vertical") * Vector3.left * Time.deltaTime);
+        this.transform.Translate(Input.GetAxis("Vertical") * Vector3.left * modifySpeed * Time.deltaTime);
 
     }
 
