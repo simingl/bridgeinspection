@@ -9,6 +9,7 @@ public class ROSManager{
 	private static ROSManager instance = new ROSManager();
 
     private Texture2D UBDCam;
+    private Texture2D droneCam;
 
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn = false;
@@ -21,7 +22,7 @@ public class ROSManager{
 
 	private ROSManager(){
         UBDCam = new Texture2D(128, 128);
-                
+        droneCam = new Texture2D(128, 128);  
         //ROSConnect();
         
     }
@@ -61,6 +62,12 @@ public class ROSManager{
     public Texture2D getUBDCam() {
         
             return UBDCam;       
+    }
+
+    public Texture2D getdroneCam()
+    {
+
+        return droneCam;
     }
 
     public void setIp(string newip)
