@@ -196,6 +196,9 @@ namespace ROSBridgeLib {
 				Debug.Log ("Operation is " + op);
 				if("publish".Equals (op)) {
 					string topic = node["topic"];
+                    if (topic == "/odom") {
+                        int xxxx = 0;
+                    }
 					Debug.Log ("Got a message on " + topic);
 					foreach(Type p in _subscribers) {
 						if(topic.Equals (GetMessageTopic (p))) {

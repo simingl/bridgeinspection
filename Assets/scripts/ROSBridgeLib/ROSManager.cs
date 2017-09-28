@@ -11,6 +11,9 @@ public class ROSManager{
     private Texture2D UBDCam;
     private Texture2D droneCam;
 
+    private Vector3Msg OdomLinear = new Vector3Msg(0,0,0);
+    private Vector3Msg OdomAngular;
+
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn = false;
 
@@ -33,7 +36,11 @@ public class ROSManager{
         Debug.Log("ROSBridge connecting to " + ip);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
-        ros.AddPublisher(typeof(RobotTeleop));
+        //ros.AddSubscriber(typeof(Turtle1Pose));
+        //ros.AddSubscriber(typeof(GPSMessage)); //from Gaetano's ROSManager GPSMessage is not part of this code
+        ros.AddSubscriber(typeof(OdometryData));
+
+        ros.AddPublisher(typeof(RobotTeleop));        
         ros.Connect();
         lineOn = true;
     }
@@ -79,5 +86,28 @@ public class ROSManager{
     {
         return ip;
     }
-    
+
+    public void setLinear( Vector3Msg rosLinear )
+    {
+        OdomLinear = rosLinear;
+
+     }
+
+    public Vector3Msg getLinear()
+    {
+        return OdomLinear;
+
+    }
+
+    public void setAngular(Vector3Msg rosAngular)
+    {
+        OdomAngular = rosAngular;
+    }
+
+    public Vector3Msg getAngular()
+    {
+        return OdomAngular;
+
+    }
+
 }
