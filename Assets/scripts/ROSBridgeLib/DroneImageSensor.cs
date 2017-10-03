@@ -34,5 +34,6 @@ public class DroneImageSensor : ROSBridgeSubscriber {
 	public new static void CallBack(ROSBridgeMsg msg) {
         CompressedImageMsg imgMsg = msg as CompressedImageMsg;
         //HUD.droneCamera.LoadImage(imgMsg.GetImage());
+        ROSManager.getInstance().getdroneCam().LoadImage(imgMsg.GetImage());
     }
 }

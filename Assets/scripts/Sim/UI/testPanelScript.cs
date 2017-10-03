@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class testPanelScript : MonoBehaviour {
 
+    public Text ROSLinearVelocityOut;
     public Text dronePanelVelocityOut;
     public Text dronePanelAngVelocity;
     public Text droneAltitude;
@@ -16,6 +17,7 @@ public class testPanelScript : MonoBehaviour {
     private Rigidbody droneRigidbody;
     private Vector3 drn_velocityVector;
     private Vector3 drn_angularVelocityVector;
+    private ROSManager rosManager;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +27,9 @@ public class testPanelScript : MonoBehaviour {
         drn_angularVelocityVector = droneTransform.eulerAngles;
         drn_velocityVector = droneTransform.position;
 
+        rosManager = ROSManager.getInstance();
+        
+        
 
 		
 	}
@@ -34,6 +39,8 @@ public class testPanelScript : MonoBehaviour {
 
         getDroneVelocity();
         getDroneAngularVelocity();
+
+        getROSLinearVelocity();
 		
 	}
 
@@ -56,4 +63,14 @@ public class testPanelScript : MonoBehaviour {
 
        
     }
+    
+    private void getROSLinearVelocity()
+    {
+        if (ROSLinearVelocityOut != null)
+        {
+            ROSLinearVelocityOut.text = ROSManager.getInstance().getLinear().ToString();
+        }
+        
+    }
+    
 }
