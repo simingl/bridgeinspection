@@ -44,6 +44,13 @@ public class movementControl : MonoBehaviour {
         //Linear movement
         //Vector3.left is used because UBD transform is off 
         this.transform.Translate(Input.GetAxis("Vertical") * Vector3.left * modifySpeed * Time.deltaTime);
+        
+        //constructing ROS teleop message
+        float _dx = Input.GetAxis("Horizontal");
+        float _dy = Input.GetAxis("Vertical");
+        float linear = _dy * 0.6f;
+        float angular = -_dx * 1.6f;
+        ROSManager.getInstance().RemoteControl(new Vector3(linear, 0.0f, 0.0f), new Vector3(0.0f, 0.0f, angular));
 
     }
 

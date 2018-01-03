@@ -1,5 +1,6 @@
 ﻿using ROSBridgeLib;
 using ROSBridgeLib.sensor_msgs;
+using ROSBridgeLib.geographic_msgs;
 using ROSBridgeLib.std_msgs;
 using ROSBridgeLib.turtlesim;
 using System.Collections;
@@ -17,33 +18,26 @@ using UnityEngine;
  * @version 3.0
  **/
 
-public class RobotImageSensor : ROSBridgeSubscriber {
+public class GPSMessage : ROSBridgeSubscriber {
 	
 	public new static string GetMessageTopic() {
-
-        //for gazebo iRobot
-        //return "/iRobot/camera/image_raw/compressed";
-        
-        //for bag file
-        //return "/camera/compressed";
-        return "/camera/image";
-
-
+        // return "/iRobot/camera/image_raw/compressed";
+        return "/gps";
     }  
 	
 	public new static string GetMessageType() {
-        
-        return "sensor_msgs/CompressedImage";
-        
-        
-    }
-
-    public new static ROSBridgeMsg ParseMessage(JSONNode msg) {
-        return new CompressedImageMsg(msg);
+		return "sensor_msgs/NavSatFix";
+	}
+	
+	public new static ROSBridgeMsg ParseMessage(JSONNode msg) {
+        return new GeoPointMsg(msg);
 	}
 	
 	public new static void CallBack(ROSBridgeMsg msg) {
-        CompressedImageMsg imgMsg = msg as CompressedImageMsg;
-        ROSManager.getInstance().getUBDCam().LoadImage(imgMsg.GetImage());
+        GeoPointMsg LocationGPS = msg as GeoPointMsg;
+        ROSManager.getInstance().setLatitude(LocationGPS.GetLatitude());
+        ROSManager.getInstance().setLongitude(LocationGPS.GetLongitude());
+        ROSManager.getInstance().setAltitude(LocationGPS.GetAltitude());
+        Debug.Log(LocationGPS.ToYAMLString());
     }
 }
