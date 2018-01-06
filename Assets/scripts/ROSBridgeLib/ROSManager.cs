@@ -40,7 +40,7 @@ public class ROSManager{
         Debug.Log("ROSBridge connecting to " + ip);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
-        //ros.AddSubscriber(typeof(GPSMessage)); //from Gaetano's ROSManager GPSMessage is not part of this code
+        ros.AddSubscriber(typeof(GPSMessage)); //from Gaetano's ROSManager GPSMessage is not part of this code
         //ros.AddSubscriber(typeof(OdometryData));
 
         ros.AddPublisher(typeof(RobotTeleop));        
@@ -118,6 +118,7 @@ public class ROSManager{
         gps_Latitude = rosLatitude;
     }
 
+    
     public void setLongitude( float rosLongitude )
     {
         
@@ -130,6 +131,21 @@ public class ROSManager{
       
         gps_Altitude = rosAltitude;
 
+    }
+
+    public float getAltitude()
+    {
+        return gps_Altitude;
+    }
+
+    public float getLongitude()
+    {
+        return gps_Longitude;
+    }
+
+    public float getLatitude()
+    {
+        return gps_Latitude;
     }
 
 }

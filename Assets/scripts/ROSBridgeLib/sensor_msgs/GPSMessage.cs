@@ -38,6 +38,6 @@ public class GPSMessage : ROSBridgeSubscriber {
         ROSManager.getInstance().setLatitude(LocationGPS.GetLatitude());
         ROSManager.getInstance().setLongitude(LocationGPS.GetLongitude());
         ROSManager.getInstance().setAltitude(LocationGPS.GetAltitude());
-        Debug.Log(LocationGPS.ToYAMLString());
+        //Debug.Log(LocationGPS.ToYAMLString());
     }
 }
