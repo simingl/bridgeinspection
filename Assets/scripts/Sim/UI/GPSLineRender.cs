@@ -14,17 +14,22 @@ namespace UnityEngine.UI.Extensions
         public float gpsValueScale = 2.0f;
 
         //only the nth gps value is added to the point list
-        public int gpsLinePrecisionScale = 100;
+        public int gpsLinePrecisionScale = 50;
         private float precisionCounter = 0;
 
         //[SerializeField] 
-        private float longitude;
-        private float latitude;
-        private float prevLongitude;
-        private float prevLatittude;
+        [SerializeField] private float longitude;
+        [SerializeField] private float latitude;
+        [SerializeField] private float prevLongitude;
+        [SerializeField] private float prevLatittude;
 
-        private float longitudeOffset;
-        private float latitudeOffset;
+        [SerializeField] private float longitudeOffset;
+        [SerializeField] private float latitudeOffset;
+
+        [SerializeField] private int linePointCount;
+        public int arrayMaxCount = 7000;
+
+
 
         //change the decimal place of the raw gps data by multiplying 
         public float GPSDecimalPrecisionVariable = 100;
@@ -93,10 +98,11 @@ namespace UnityEngine.UI.Extensions
                 prevLongitude = longitude;
 
                 //check that Line Renderer array is less than 8000
-                Debug.Log(LineRenderer.Points.Length);
-                if(LineRenderer.Points.Length >= 7500)
+                linePointCount = LineRenderer.Points.Length;
+
+                if(LineRenderer.Points.Length >= arrayMaxCount)
                 {
-                    //makeRoomInArray(LineRenderer.Points);
+                    LineRenderer.Points = makeRoomInArray(LineRenderer.Points);
                 }
 
 
@@ -109,17 +115,25 @@ namespace UnityEngine.UI.Extensions
 
         }
 
-        /*
+        
         public Vector2[] makeRoomInArray( Vector2[] LineRendererArray )
         {
-            var workingArray = new List<Vector2>(LineRendererArray.Length/2);
+            int index = 0;
+            var workingList = new List<Vector2>(0);
+            Vector2[] workingArray;
 
-            for (int i = 1; i < LineRendererArray.Length; i++)
+            while(index < LineRendererArray.Length)
             {
-                workingArray = LineRendererArray[i + 1];
+                workingList.Add(LineRendererArray[index]);
+
+                index += 2;
             }
+
+            workingArray = workingList.ToArray();
+
+            return workingArray;
         }
-        */
+        
 
     }
 }

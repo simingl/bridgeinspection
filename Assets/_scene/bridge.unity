@@ -5260,7 +5260,7 @@ Prefab:
     - target: {fileID: 224191077152686914, guid: 6b7ce33f59adc0248b4568a4542870fd,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224191077152686914, guid: 6b7ce33f59adc0248b4568a4542870fd,
         type: 2}
@@ -10424,13 +10424,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436789988}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 399061913}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
   m_AnchorMin: {x: 0.49434873, y: 0.37917125}
   m_AnchorMax: {x: 0.49434873, y: 0.37917125}
   m_AnchoredPosition: {x: 5.823181, y: 75.39712}
@@ -10448,8 +10448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.853, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.18199992, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10488,7 +10488,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LineRenderer: {fileID: 1436789990}
   gpsValueScale: 2
-  gpsLinePrecisionScale: 1
+  gpsLinePrecisionScale: 50
+  longitude: 0
+  latitude: 0
+  prevLongitude: 0
+  prevLatittude: 0
+  longitudeOffset: 0
+  latitudeOffset: 0
+  linePointCount: 0
+  arrayMaxCount: 7000
   GPSDecimalPrecisionVariable: 100
 --- !u!1 &1436988324
 GameObject:

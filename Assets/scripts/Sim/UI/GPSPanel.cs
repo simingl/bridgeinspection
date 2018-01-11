@@ -15,15 +15,20 @@ using UnityEngine.UI;
 
         private ROSManager rosManager;
 
+    private void Awake()
+    {
+        GPSLineRenderer.SetActive(false);
+    }
 
-        // Use this for initialization
-        void Start()
+
+
+    // Use this for initialization
+    void Start()
         {
-            rosManager = ROSManager.getInstance();
-
-            GPSLineRenderer.SetActive(false);
+            rosManager = ROSManager.getInstance();            
 
         }
+
 
         // Update is called once per frame
         void Update()
