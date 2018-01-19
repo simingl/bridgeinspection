@@ -27,6 +27,8 @@ public class SimpleCarController : MonoBehaviour {
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
             }
+
+           
         }
     }
 }
