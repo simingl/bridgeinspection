@@ -41,7 +41,7 @@ public class magnet : MonoBehaviour {
 
         Vector3 magforce = direction.normalized * forceMagnitude;
 
-        Debug.DrawLine(rb.position , magforce, Color.green);
+        //Debug.DrawLine(rb.position , magforce, Color.green);
         //add force to myself
         rb.AddForce(magforce);
     }

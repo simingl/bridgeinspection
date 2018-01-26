@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class movementControl : MonoBehaviour {
 
-    
+    public float modifySpeed = 1.0f;
 
     // Use this for initialization
     void Start() {
@@ -33,7 +33,7 @@ public class movementControl : MonoBehaviour {
 
     private void ubdMovement()
     {
-        float modifySpeed = 0.15f;
+        //float modifySpeed = 0.15f;
         
         //Angular movement
         //get axis to rotate around
