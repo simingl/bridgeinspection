@@ -176,11 +176,11 @@ namespace ROSBridgeLib {
 
 			foreach(Type p in _subscribers) {
 				_ws.Send(ROSBridgeMsg.Subscribe (GetMessageTopic(p), GetMessageType (p)));
-				Debug.Log ("Sending " + ROSBridgeMsg.Subscribe (GetMessageTopic(p), GetMessageType (p)));
+				//Debug.Log ("Sending " + ROSBridgeMsg.Subscribe (GetMessageTopic(p), GetMessageType (p)));
 			}
 			foreach(Type p in _publishers) {
 				_ws.Send(ROSBridgeMsg.Advertise (GetMessageTopic(p), GetMessageType(p)));
-				Debug.Log ("Sending " + ROSBridgeMsg.Advertise (GetMessageTopic(p), GetMessageType(p)));
+				//Debug.Log ("Sending " + ROSBridgeMsg.Advertise (GetMessageTopic(p), GetMessageType(p)));
 			}
 			while(true) {
 				Thread.Sleep (10000);
@@ -188,21 +188,21 @@ namespace ROSBridgeLib {
 		}
 
 		private void OnMessage(string s) {
-			Debug.Log ("Got a message " + s);
+			//Debug.Log ("Got a message " + s);
 			if((s!= null) && !s.Equals ("")) {
 				JSONNode node = JSONNode.Parse(s);
-				Debug.Log ("Parsed it");
+				//Debug.Log ("Parsed it");
 				string op = node["op"];
-				Debug.Log ("Operation is " + op);
+				//Debug.Log ("Operation is " + op);
 				if("publish".Equals (op)) {
 					string topic = node["topic"];
-                    if (topic == "/odom") {
-                        int xxxx = 0;
-                    }
-					Debug.Log ("Got a message on " + topic);
+                    //if (topic == "/odom") {
+                    //    int xxxx = 0;
+                    //}
+					//Debug.Log ("Got a message on " + topic);
 					foreach(Type p in _subscribers) {
 						if(topic.Equals (GetMessageTopic (p))) {
-							Debug.Log ("And will parse it " + GetMessageTopic (p));
+							//Debug.Log ("And will parse it " + GetMessageTopic (p));
 							ROSBridgeMsg msg = ParseMessage(p, node["msg"]);
 							RenderTask newTask = new RenderTask(p, topic, msg);
 							lock(_queueLock) {
@@ -222,7 +222,7 @@ namespace ROSBridgeLib {
 						}
 					}
 				} else if("service_response".Equals (op)) {
-					Debug.Log ("Got service response " + node.ToString ());
+					//Debug.Log ("Got service response " + node.ToString ());
 					_serviceName = node["service"];
 					_serviceValues = (node["values"] == null) ? "" : node["values"].ToString ();
 				} else
@@ -259,7 +259,7 @@ namespace ROSBridgeLib {
 		public void CallService(string service, string args) {
 			if (_ws != null) {
 				string s = ROSBridgeMsg.CallService (service, args);
-				Debug.Log ("Sending " + s);
+				//Debug.Log ("Sending " + s);
 				_ws.Send (s);
 			}
 		}

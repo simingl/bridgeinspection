@@ -14,6 +14,10 @@ public class ROSManager{
     private Vector3Msg OdomLinear = new Vector3Msg(0,0,0);
     private Vector3Msg OdomAngular;
 
+    private float gps_Latitude;
+    private float gps_Longitude;
+    private float gps_Altitude;
+
     private ROSBridgeWebSocketConnection ros = null;
     private Boolean lineOn = false;
 
@@ -36,9 +40,8 @@ public class ROSManager{
         Debug.Log("ROSBridge connecting to " + ip);
         ros.AddSubscriber(typeof(RobotImageSensor));
         ros.AddSubscriber(typeof(DroneImageSensor));
-        //ros.AddSubscriber(typeof(Turtle1Pose));
-        //ros.AddSubscriber(typeof(GPSMessage)); //from Gaetano's ROSManager GPSMessage is not part of this code
-        ros.AddSubscriber(typeof(OdometryData));
+        ros.AddSubscriber(typeof(GPSMessage)); //from Gaetano's ROSManager GPSMessage is not part of this code
+        //ros.AddSubscriber(typeof(OdometryData));
 
         ros.AddPublisher(typeof(RobotTeleop));        
         ros.Connect();
@@ -108,6 +111,41 @@ public class ROSManager{
     {
         return OdomAngular;
 
+    }
+
+    public void setLatitude( float rosLatitude )
+    {
+        gps_Latitude = rosLatitude;
+    }
+
+    
+    public void setLongitude( float rosLongitude )
+    {
+        
+        gps_Longitude = rosLongitude;
+    }
+
+
+    public void setAltitude( float rosAltitude )
+    {
+      
+        gps_Altitude = rosAltitude;
+
+    }
+
+    public float getAltitude()
+    {
+        return gps_Altitude;
+    }
+
+    public float getLongitude()
+    {
+        return gps_Longitude;
+    }
+
+    public float getLatitude()
+    {
+        return gps_Latitude;
     }
 
 }
