@@ -16,6 +16,7 @@ public class crawlerWheelSpherecast : MonoBehaviour {
     private Vector3 direction;
     private Vector3 origin;
     //private Vector3 down;
+    //private Vector3 originOffset = origin.x ;
 
 
     // Use this for initialization
@@ -29,19 +30,36 @@ public class crawlerWheelSpherecast : MonoBehaviour {
 	void FixedUpdate ()
     {
         RaycastHit hit;
-        origin = tf.position;
-        direction = tf.position;
-        //down = -transform.right;
+        origin = tf.position + tf.right;
+        
+        //-tf.right (-x) is down
+        direction = - tf.right;
+        
+
+        //show wheel down direction
+        Debug.DrawRay(tf.position, - tf.right, Color.yellow);
 
 
 
-        if (Physics.SphereCast(origin, sc_radius, direction, out hit, sc_distance, magneticLayerMask))
+        if (Physics.SphereCast(origin , sc_radius, direction, out hit, sc_distance, magneticLayerMask))
         {
             Debug.DrawLine(origin, hit.point, Color.magenta);
             Debug.Log("Spherecast hit magnetic object.");
 
-            rb.AddForce(tf.position - hit.point * adjustMagneticForce);
-            Debug.DrawRay(tf.position, tf.position - hit.point, Color.blue);
+            //rb.AddForce(hit.point - tf.position * adjustMagneticForce);
+            //Debug.DrawRay(tf.position, hit.point - tf.position , Color.blue);
+
+            rb.AddForceAtPosition((hit.point - tf.position) * adjustMagneticForce, hit.point);
+            Debug.DrawRay(tf.position, hit.point - tf.position, Color.blue);
+
+            //add more forward force
+            if (Input.GetKeyDown("w"))
+            {
+                rb.AddForce(rb.transform.forward);
+                Debug.DrawRay(rb.transform.position, rb.transform.forward, Color.blue);
+            }
+
+            
 
         }
 	}
