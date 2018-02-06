@@ -8,6 +8,8 @@ public class crawlerWheelRaycast : MonoBehaviour {
     private Rigidbody rb;
     public float adjustMagneticForce = 0.2f;
 
+    
+
     // Use this for initialization
     void Start () {
         rb = GetComponentInParent<Rigidbody>();
@@ -23,7 +25,8 @@ public class crawlerWheelRaycast : MonoBehaviour {
     {
 
         //
-        Vector3 down = transform.TransformDirection(Vector3.left);
+        //Vector3 down = transform.TransformDirection(Vector3.left);
+        Vector3 down = -transform.right;
 
         RaycastHit hit;
 
@@ -41,8 +44,15 @@ public class crawlerWheelRaycast : MonoBehaviour {
             //rb.AddForceAtPosition(transform.position, forceVector);
             //Debug.DrawRay(transform.position, forceVector, Color.blue);
 
-            rb.AddForce(rb.transform.position * adjustMagneticForce);
-            Debug.DrawRay(rb.position, forceVector, Color.blue);
+            //rb.AddForce( rb.position * adjustMagneticForce);
+            //Debug.DrawRay( rb.position , forceVector, Color.blue);
+
+            //rb.AddForce(0, -1.5f, 2.5f);
+            //Debug.DrawRay(rb.position, (0, -0.5f, 1), Color.blue);
+
+            rb.AddForce(down * adjustMagneticForce);
+            Debug.DrawRay(rb.position, down, Color.blue);
+
         }
 
 
