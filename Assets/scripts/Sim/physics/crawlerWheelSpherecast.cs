@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class crawlerWheelSpherecast : MonoBehaviour {
 
+    public bool attached = false;
+
     int magneticLayerMask = 1 << 13;
     private Rigidbody rb;
     private Transform tf;
@@ -17,6 +19,7 @@ public class crawlerWheelSpherecast : MonoBehaviour {
     private Vector3 origin;
     //private Vector3 down;
     //private Vector3 originOffset = origin.x ;
+    //private bool attached =false;
 
 
     // Use this for initialization
@@ -37,14 +40,17 @@ public class crawlerWheelSpherecast : MonoBehaviour {
         
 
         //show wheel down direction
-        Debug.DrawRay(tf.position, - tf.right, Color.yellow);
+        //Debug.DrawRay(tf.position, - tf.right, Color.yellow);
 
 
 
         if (Physics.SphereCast(origin , sc_radius, direction, out hit, sc_distance, magneticLayerMask))
         {
+            //set attached to true
+            attached = true;
+
             Debug.DrawLine(origin, hit.point, Color.magenta);
-            Debug.Log("Spherecast hit magnetic object.");
+            //Debug.Log("Spherecast hit magnetic object.");
 
             //rb.AddForce(hit.point - tf.position * adjustMagneticForce);
             //Debug.DrawRay(tf.position, hit.point - tf.position , Color.blue);
@@ -52,17 +58,23 @@ public class crawlerWheelSpherecast : MonoBehaviour {
             rb.AddForceAtPosition((hit.point - tf.position) * adjustMagneticForce, hit.point);
             Debug.DrawRay(tf.position, hit.point - tf.position, Color.blue);
 
+            /*
             //add more forward force
             if (Input.GetKeyDown("w"))
             {
                 rb.AddForce(rb.transform.forward);
                 Debug.DrawRay(rb.transform.position, rb.transform.forward, Color.blue);
             }
+            */
 
-            
+
 
         }
-	}
+        else
+        {
+            attached = false;
+        }
+    }
 
     /*
     private void OnDrawGizmosSelected()
