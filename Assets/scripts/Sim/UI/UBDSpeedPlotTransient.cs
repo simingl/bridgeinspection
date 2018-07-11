@@ -56,7 +56,7 @@ public class UBDSpeedPlotTransient : MonoBehaviour {
                 screenshotFilename = "transient_" + screenshotCount + ".png";
             } while (System.IO.File.Exists(screenshotFilename));
 
-            Application.CaptureScreenshot(screenshotFilename);
+            ScreenCapture.CaptureScreenshot(screenshotFilename);
         }
     }
 

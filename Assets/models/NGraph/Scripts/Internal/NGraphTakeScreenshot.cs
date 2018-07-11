@@ -26,7 +26,7 @@ public class NGraphTakeScreenshot : MonoBehaviour
             screenshotFilename = "screenshot" + screenshotCount + ".png";
          } while (System.IO.File.Exists(screenshotFilename));
          
-         Application.CaptureScreenshot(screenshotFilename);
+         ScreenCapture.CaptureScreenshot(screenshotFilename);
       }
    }
 }
