@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class predefinedPath : MonoBehaviour {
-
-    private WayPoint[] route = null;
+    public WayPoint[] route = null;
 
     public float speed = 1f;
     private Transform t;
@@ -13,17 +12,12 @@ public class predefinedPath : MonoBehaviour {
     void Start ()
     {
         t = this.gameObject.transform;
-        route = WaypointCluster.waypoints.ToArray();
     }
 
     /* Move the square */
     int i = 0;
 	void Update () {
-        //leave in case we reached our destination
-        if (route == null || route.Length <= 0) {
-            route = WaypointCluster.waypoints.ToArray();
-        }
-        if (i >= route.Length) return;
+        if (route == null || i >= route.Length) return;
         //Distance between the square and the current target waypoint
         float distance = Vector3.Distance(t.position, route[i].transform.position);
         //Move the square towards the current target
