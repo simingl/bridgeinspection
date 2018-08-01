@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 public class WaypointCluster : MonoBehaviour {
     public GameObject nevCubePrefab;
@@ -13,11 +14,41 @@ public class WaypointCluster : MonoBehaviour {
 
     private List<string> routesFromGA = new List<string>();
 
+    private const int NUMBER_POINTS = 34;
+    private const int NUMBER_EDGES = 83;
+    private const string graphfile = "graph-raw.csv";
+    List<List<int>> graph = new List<List<int>>();
+
     void Start()
     {
+        loadGraph();
         WayPoint[] wps = this.GetComponentsInChildren<WayPoint>();
+        foreach (WayPoint wp in wps) {
+            wp.setParent(this);
+        }
         waypoints.Clear();
         loadRoute();
+    }
+
+    private void loadGraph()
+    {
+        using (var reader = new StreamReader(@"C:\Users\simingl\Google Drive\0Research\BridgeInspection\cigarW\graph-raw.csv"))
+        {
+
+            while (!reader.EndOfStream) { 
+                var line = reader.ReadLine();
+                string[] values = line.Split(',');
+                List<int> row = new List<int>();
+                for (int c = 0; c < values.Length; c++) {
+                    row.Add(int.Parse(values[c]));
+                }
+                graph.Add(row);
+            }
+        }
+    }
+
+    public int getDistance(int start, int end) {
+        return graph[start][end];
     }
 
     private void loadRoute()
@@ -28,9 +59,9 @@ public class WaypointCluster : MonoBehaviour {
             List<string> wpstr = rtstr.Split(',').ToList();
             WayPoint[] wps = this.GetComponentsInChildren<WayPoint>();
             List<WayPoint> route = new List<WayPoint>();
-            foreach (string str in wpstr)
+            for (int i=0;i<wpstr.Count;i++)
             {
-                int point = int.Parse(str);
+                int point = int.Parse(wpstr[i]);
                 WayPoint wp = wps.First(x => x.name == point.ToString());
                 route.Add(wp);
             }
@@ -42,22 +73,15 @@ public class WaypointCluster : MonoBehaviour {
 
     private void generateTestRoutes() {
         //From GA
-        string r50368 = "0,3,5,7,4,8,10,14,12,8,7,24,25,22,20,17,23,25,29,26,22,24,21,25,26,23,20,19,18,21,19,17,18,18,1,5,2,1,18,22,19,23,23,26,28,24,27,31,33,30,30,33,32,31,28,32,29,31,30,28,25,27,30,13,10,7,11,13,16,14,13,13,16,15,11,14,15,12,9,11,8,9,5,8,6,2,0,1,4,2,3,6,9";
-        this.routesFromGA.Add(r50368);
-
-        string r2_27446_1 = "18,21,19,20,22,26,25,29,31,33,32,31,33,30,31,29,32,28,31,27,30,13,10,4,1,5,3,0,2,6,8,11,9,6,3,2,5,8,14,10,7,24,25,21,24,28,25,23,19,22,18,17";
-        string r2_27446_2 = "7,8,2,4,9,5,8,9,8,4,7,11,13,14,15,12,14,15,16,14,11,15,16,13,30,28,26,29,26,23,25,27,24,7,5,2,1,0,2,6,9,12,8,10,24,22,25,23,20,17,19,18,1";
-        //27446(E1014)(E710)(E724)(E2425)(E2125)(E2124)(E2428)(E2528)(E1923)(E1922)(E1822)(E1718)Robot - 84 =>(E78)(E24)(E59)(E89)(E48)(E47)(E711)(E1113)(E1314)(E1215)(E1214)(E1415)(E1516)(E1416)(E1114)(E1115)(E1316)(E2830)(E2628)(E2629)(E2326)(E2527)(E2427)(E57)(E12)(E01)(E02)(E69)(E912)(E812)(E810)(E2224)(E2225)(E2325)(E2023)(E1720)(E1719)(E1819)(E118)Robot - 83 =>(E1821)(E1921)(E1920)(E2022)(E2226)(E2526)(E2529)(E3133)(E3233)(E3132)(E3033)(E3031)(E2931)(E2932)(E2832)(E2831)(E2731)(E2730)(E1330)(E1013)(E14)(E15)(E35)(E03)(E26)(E68)(E811)(E911)(E36)(E23)(E25)(E58)(E1014)
-        //Robot - 84 =>7,8,2,4,9,5,8,9,8,4,7,11,13,14,15,12,14,15,16,14,11,15,16,13,30,28,26,29,26,23,25,27,24,7,5,2,1,0,2,6,9,12,8,10,24,22,25,23,20,17,19,18,1,
-        //Robot - 83 =>18,21,19,20,22,26,25,29,31,33,32,31,33,30,31,29,32,28,31,27,30,13,10,4,1,5,3,0,2,6,8,11,9,6,3,2,5,8,14,10,7,24,25,21,24,28,25,23,19,22,18,17,
-        //string R2_25422_1 = "0,2,3,5,9,8,7,4,2,5,1,18,21,25,22,20,23,25,29,31,32,33,31,30,27,24,25,26,28,24,21,18,17,19,23,25,28,30,27,31,28,32,29,26,23,19,22,26,25,27";
-        string R2_25422_2 = "21,19,17,20,19,18,22,24,7,10,13,16,14,11,8,4,1,1,15,11,9,6,3,0,1,2,6,8,10,14,12,8,9,12,15,14,13,11,8,5,7,11,13,30,33";
+        string r51974 = "13,16,14,15,12,14,11,7,8,6,2,4,1,2,0,1,18,21,18,19,20,17,18,22,20,23,19,22,26,25,28,24,25,23,19,17,19,21,24,22,25,21,30,13,10,8,9,12,9,5,7,4,8,11,15,16,14,13,11,9,6,3,5,2,3,0,1,5,8,12,14,10,7,24,27,25,29,26,23,26,28,32,29,31,28,30,27,31,33,32,31,30,33";
+        //this.routesFromGA.Add(r51974);
 
 
-        string r_26022_1 = "10,14,12,9,8,7,5,1,2,4,7,24,25,28,24,21,25,19,21,24,27,30,13,11,7,10,13,30,33,31,32,33,31,27,25,29,26,28,30,31,29,32,28,31";
-        string r_26022_2 = "10,8,6,9,11,8,5,2,0,5,9,5,3,6,2,3,0,1,4,8,12,15,11,14,15,16,14,13,16,16,22,25,26,22,19,18,21,18,17,19,20,17,19,20,19,23,26,25,23,20,22,18,1";
-        //this.routesFromGA.Add(r_26022_1);
-        //this.routesFromGA.Add(r_26022_2);
+
+        string r26340_1 = "0,1,18,21,19,17,19,18,17,20,19,21,24,7,4,8,6,9,12,14,15,16,14,13,30,27,31,28,32,33,30,31,32,29,31,28,30,27,25,29,26,25,23,19,22,18,1,2,5,9,11";
+        string r26340_2 = "33,31,28,26,23,20,22,24,7,5,8,8,10,14,11,7,8,12,15,14,13,16,15,11,8,6,2,3,5,1,4,2,0,3,6,9,8,7,10,13,27,24,28,25,26,22,25,21,24,25";
+        this.routesFromGA.Add(r26340_1);
+        this.routesFromGA.Add(r26340_2);
     }
     private void CreateNavCubePrefab() {
         //create prefab for moving cubes each with random color

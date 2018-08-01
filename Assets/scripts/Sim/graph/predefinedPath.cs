@@ -7,6 +7,7 @@ public class predefinedPath : MonoBehaviour {
 
     public float speed = 1f;
     private Transform t;
+    public int totalDistance = 0;
 
     /* Initialization */
     void Start ()
@@ -24,8 +25,16 @@ public class predefinedPath : MonoBehaviour {
         t.position = Vector3.Lerp(t.position, route[i].transform.position, speed * Time.deltaTime / distance);
         //In case the square arrived to the target waypoint (very small distance)
         if (distance < 0.1)
+        {
             //Change the current target to the next defined waypoint
-            i++;
+            if (i > 0)
+            {
+                int previous = int.Parse(route[i - 1].name);
+                int current = int.Parse(route[i].name);
+                this.totalDistance += route[i].getParent().getDistance(previous, current);
+            }
+            i++;            
+        }
 	}
 
 }

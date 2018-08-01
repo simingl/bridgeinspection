@@ -303,6 +303,6 @@ public class NGraphUtils
       pUIVertex.uv0 = new Vector2(1, 1);
       pVertexList.Add(pUIVertex);
 
-      pCanvasRenderer.SetVertices(pVertexList);
+      //pCanvasRenderer.SetVertices(pVertexList);
    }
 }
